@@ -14,7 +14,9 @@ class InternetPackageController extends Controller
      */
     public function index()
     {
-        return view('internet_packages.index');
+        $internet_packages = InternetPackage::select('id', 'name', 'price')->get();
+
+        return view('internet_packages.index', compact('internet_packages'));
     }
 
     /**

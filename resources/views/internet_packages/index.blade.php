@@ -27,14 +27,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($internet_packages as $internet_package)
                             <tr>
-                                <td>1</td>
-                                <td>10MB</td>
-                                <td>250000</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $internet_package->name }}</td>
+                                <td>{{ $internet_package->price }}</td>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-success btn-sm edit-button"
-                                            data-toggle="modal" data-target="#editInternetPackageModal" data-id="#">
+                                            data-toggle="modal" data-target="#editInternetPackageModal"
+                                            data-id="{{ $internet_package->id }}">
                                             <i class="fas fa-fw fa-edit"></i>
                                         </button>
                                         <form action="#" method="POST">
@@ -47,6 +49,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
