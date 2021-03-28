@@ -31,10 +31,10 @@
                             @foreach ($transactions as $transaction)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $transaction->user_id }}</td>
+                                <td>{{ $transaction->clients->name }}</td>
                                 <td>{{ date('d-m-Y', strtotime($transaction->date)) }}</td>
                                 <td>{{ get_is_paid_status($transaction->is_paid) }}</td>
-                                <td>{{ $transaction->user_id }}</td>
+                                <td>{{ $transaction->users->name }}</td>
                                 <td>$320,800</td>
                             </tr>
                             @endforeach
