@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class InternetPackage extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'price'];
 }

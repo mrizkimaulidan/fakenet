@@ -33,7 +33,7 @@
             <span>Klien</span></a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item {{ request()->routeIs('paket-internet.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('paket-internet.index') }}">
             <i class="fas fa-fw fa-boxes"></i>
             <span>Paket Internet</span></a>

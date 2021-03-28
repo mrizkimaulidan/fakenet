@@ -61,5 +61,5 @@
 @endpush
 
 @push('modal')
-{{--  --}}
+@include('internet_packages.modal.create')
 @endpush

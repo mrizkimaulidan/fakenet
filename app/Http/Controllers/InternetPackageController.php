@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InternetPackage;
 use Illuminate\Http\Request;
 
 class InternetPackageController extends Controller
@@ -34,7 +35,12 @@ class InternetPackageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        InternetPackage::create([
+            'name' => $request->name,
+            'price' => $request->price,
+        ]);
+
+        return redirect()->route('paket-internet.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
