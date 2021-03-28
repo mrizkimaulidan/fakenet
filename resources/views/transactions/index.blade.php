@@ -17,7 +17,7 @@
                 </button>
                 <div class="table-responsive">
                     <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
-                        <thead>
+                        <thead class="text-center">
                             <tr>
                                 <th>#</th>
                                 <th>Nama Klien</th>
@@ -35,7 +35,19 @@
                                 <td>{{ date('d-m-Y', strtotime($transaction->date)) }}</td>
                                 <td>{{ get_is_paid_status($transaction->is_paid) }}</td>
                                 <td>{{ $transaction->users->name }}</td>
-                                <td>$320,800</td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-fw fa-search"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-success btn-sm">
+                                            <i class="fas fa-fw fa-edit"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-fw fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
