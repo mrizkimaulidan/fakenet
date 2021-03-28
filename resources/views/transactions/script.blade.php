@@ -1,5 +1,37 @@
 <script>
     $(function() {
+
+        $('.detail-button').click(function() {
+            let id = $(this).data('id');
+            let url = "{{ route('api.transaksi.detail', 'id') }}";
+
+            url = url.replace('id', id);
+
+            $('#detailTransactionModal form #client_id').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #user_id').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #day').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #month').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #amount').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #is_paid').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #date').val('Sedang mengambil data..');
+
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function(response) {
+                    setTimeout(() => {
+                        $('#detailTransactionModal form #client_id').val(response.data.client_name);
+                        $('#detailTransactionModal form #user_id').val(response.data.user_name);
+                        $('#detailTransactionModal form #day').val(response.data.day);
+                        $('#detailTransactionModal form #month').val(response.data.month);
+                        $('#detailTransactionModal form #amount').val(response.data.amount);
+                        $('#detailTransactionModal form #is_paid').val(response.data.is_paid);
+                        $('#detailTransactionModal form #date').val(response.data.date);
+                    }, 1000);
+                }
+            });
+        });
+
         $('.edit-button').click(function() {
             let id = $(this).data('id');
             let showTransactionUrl = "{{ route('api.transaksi.show', 'id') }}";

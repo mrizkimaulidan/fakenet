@@ -31,13 +31,15 @@
                             @foreach ($transactions as $transaction)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $transaction->clients->name }}</td>
+                                <td>{{ $transaction->client->name }}</td>
                                 <td>{{ date('d-m-Y', strtotime($transaction->date)) }}</td>
                                 <td>{{ get_is_paid_status($transaction->is_paid) }}</td>
-                                <td>{{ $transaction->users->name }}</td>
+                                <td>{{ $transaction->user->name }}</td>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-primary btn-sm">
+                                        <button type="button" class="btn btn-primary btn-sm detail-button"
+                                            data-toggle="modal" data-target="#detailTransactionModal"
+                                            data-id="{{ $transaction->id }}">
                                             <i class="fas fa-fw fa-search"></i>
                                         </button>
                                         <button type="button" class="btn btn-success btn-sm edit-button"
@@ -67,5 +69,6 @@
 
 @push('modal')
 @include('transactions.modal.create')
+@include('transactions.modal.show')
 @include('transactions.modal.edit')
 @endpush

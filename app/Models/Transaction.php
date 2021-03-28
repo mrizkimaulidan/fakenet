@@ -11,12 +11,12 @@ class Transaction extends Model
 
     protected $fillable = ['client_id', 'user_id', 'day', 'month', 'amount', 'is_paid', 'date'];
 
-    public function clients()
+    public function client()
     {
         return $this->belongsTo(Client::class, 'client_id', 'id');
     }
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
