@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app', [
+'title' => 'Halaman Transaksi'
+])
 
 @section('content')
 <div class="row">
