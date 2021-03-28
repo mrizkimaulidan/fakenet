@@ -10,6 +10,11 @@
                 <h6 class="m-0 font-weight-bold text-primary">Data Transaksi</h6>
             </div>
             <div class="card-body">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal"
+                    data-target="#addTransactionModal">
+                    Tambah Data
+                </button>
                 <div class="table-responsive">
                     <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
                         <thead>
@@ -39,3 +44,7 @@
     </div>
 </div>
 @endsection
+
+@push('modal')
+@include('transactions.modal.create')
+@endpush

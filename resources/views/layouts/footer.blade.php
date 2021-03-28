@@ -43,6 +43,10 @@
     });
 </script>
 
+@stack('js')
+
+@stack('modal')
+
 </body>
 
 </html>
