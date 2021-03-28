@@ -17,9 +17,9 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->foreignId('client_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->integer('day');
-            $table->integer('month');
-            $table->integer('year');
+            $table->string('day');
+            $table->string('month');
+            $table->string('year');
             $table->bigInteger('amount');
             $table->boolean('is_paid');
             $table->timestamps();

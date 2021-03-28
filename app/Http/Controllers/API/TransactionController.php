@@ -21,9 +21,9 @@ class TransactionController extends Controller
             'user_name' => $transaction->user->name,
             'day' => $transaction->day,
             'month' => $month,
+            'year' => $transaction->year,
             'amount' => indonesian_currency($transaction->amount),
             'is_paid' => get_is_paid_status($transaction->is_paid),
-            'date' => date('d-m-Y', strtotime($transaction->date))
         ];
 
         return response()->json([

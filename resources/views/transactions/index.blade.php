@@ -33,7 +33,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $transaction->client->name }}</td>
-                                <td>{{ date('d-m-Y', strtotime($transaction->date)) }}</td>
+                                <td>{{ "$transaction->day-$transaction->month-$transaction->year" }}</td>
                                 <td>{{ get_is_paid_status($transaction->is_paid) }}</td>
                                 <td>{{ $transaction->user->name }}</td>
                                 <td class="text-center">

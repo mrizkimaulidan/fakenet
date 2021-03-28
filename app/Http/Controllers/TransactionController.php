@@ -15,20 +15,11 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::select('id', 'client_id', 'user_id', 'is_paid', 'date')->get();
+        $transactions = Transaction::select('id', 'client_id', 'user_id', 'is_paid', 'day', 'month', 'year')->get();
 
         $clients = Client::select('id', 'name', 'ip_address')->get();
 
-        $months = [
-            'Januari', 'Februari',
-            'Maret', 'April',
-            'Mei', 'Juni',
-            'Juli', 'Agustus',
-            'September', 'Oktober',
-            'November', 'Desember'
-        ];
-
-        return view('transactions.index', compact('transactions', 'clients', 'months'));
+        return view('transactions.index', compact('transactions', 'clients'));
     }
 
     /**
@@ -54,9 +45,9 @@ class TransactionController extends Controller
             'user_id' => auth()->id(),
             'day' => $request->day,
             'month' => $request->month,
+            'year' => $request->year,
             'amount' => $request->amount,
-            'is_paid' => $request->is_paid,
-            'date' => $request->date
+            'is_paid' => $request->is_paid
         ]);
 
         return redirect()->route('transaksi.index')->with('success', 'Data berhasil ditambahkan!');
@@ -100,9 +91,9 @@ class TransactionController extends Controller
             'user_id' => auth()->id(),
             'day' => $request->day,
             'month' => $request->month,
+            'year' => $request->year,
             'amount' => $request->amount,
-            'is_paid' => $request->is_paid,
-            'date' => $request->date
+            'is_paid' => $request->is_paid
         ]);
 
         return redirect()->route('transaksi.index')->with('success', 'Data berhasil diubah!');

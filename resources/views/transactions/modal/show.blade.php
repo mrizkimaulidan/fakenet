@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="detailTransactionModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="detailTransactionModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="detailTransactionModalLabel">Detail Transaksi</h5>
@@ -30,17 +30,24 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="day">Hari</label>
                                 <input type="text" class="form-control" id="day" disabled>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="month">Bulan</label>
+                                <label for="year">Bulan</label>
                                 <input type="text" class="form-control" id="month" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="year">Tahun</label>
+                                <input type="text" class="form-control" id="year" disabled>
                             </div>
                         </div>
                     </div>
@@ -57,15 +64,6 @@
                             <div class="form-group">
                                 <label for="is_paid">Status</label>
                                 <input type="text" class="form-control" id="is_paid" disabled>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="date">Tanggal</label>
-                                <input type="text" class="form-control" id="date" disabled>
                             </div>
                         </div>
                     </div>
