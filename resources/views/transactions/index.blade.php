@@ -40,7 +40,9 @@
                                         <button type="button" class="btn btn-primary btn-sm">
                                             <i class="fas fa-fw fa-search"></i>
                                         </button>
-                                        <button type="button" class="btn btn-success btn-sm">
+                                        <button type="button" class="btn btn-success btn-sm edit-button"
+                                            data-toggle="modal" data-target="#editTransactionModal"
+                                            data-id="{{ $transaction->id }}">
                                             <i class="fas fa-fw fa-edit"></i>
                                         </button>
                                         <button type="button" class="btn btn-danger btn-sm">
@@ -59,6 +61,11 @@
 </div>
 @endsection
 
+@push('js')
+@include('transactions.script')
+@endpush
+
 @push('modal')
 @include('transactions.modal.create')
+@include('transactions.modal.edit')
 @endpush

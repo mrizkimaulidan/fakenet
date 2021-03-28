@@ -93,7 +93,19 @@ class TransactionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $transaction = Transaction::findOrFail($id);
+
+        $transaction->update([
+            'client_id' => $request->client_id,
+            'user_id' => auth()->id(),
+            'day' => $request->day,
+            'month' => $request->month,
+            'amount' => $request->amount,
+            'is_paid' => $request->is_paid,
+            'date' => $request->date
+        ]);
+
+        return redirect()->route('transaksi.index')->with('success', 'Data berhasil diubah!');
     }
 
     /**
