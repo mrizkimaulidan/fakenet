@@ -55,6 +55,7 @@
                                 <label class="custom-file-label" for="customFile" id="label_house_image">Pilih
                                     Gambar</label>
                             </div>
+                            <small class="text-muted">*Pastikan file berekstensi jpg/jpeg/png</small>
                         </div>
                     </div>
                 </div>
