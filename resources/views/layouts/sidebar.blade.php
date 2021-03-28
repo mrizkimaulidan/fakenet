@@ -46,7 +46,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('transaksi.index') }}">
             <i class="fas fa-fw fa-money-check"></i>
             <span>Transaksi</span></a>
     </li>
