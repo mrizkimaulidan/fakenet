@@ -52,7 +52,8 @@
                             <label for="house_image">Foto Rumah</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" name="house_image" id="house_image">
-                                <label class="custom-file-label" for="customFile">Pilih Gambar</label>
+                                <label class="custom-file-label" for="customFile" id="label_house_image">Pilih
+                                    Gambar</label>
                             </div>
                         </div>
                     </div>
@@ -75,3 +76,7 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+@include('clients.script')
+@endpush
