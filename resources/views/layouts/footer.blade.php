@@ -37,9 +37,32 @@
 <script src="js/demo/chart-area-demo.js"></script>
 <script src="js/demo/chart-pie-demo.js"></script>
 
+<!-- Sweetalert -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 <script>
     $(function() {
         $('#datatable').DataTable();
+
+        $('.delete-sweetalert').click(function (e) {
+            e.preventDefault();
+            
+            Swal.fire({
+                title: 'Hapus?',
+                text: "Data tidak akan bisa dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Hapus!',
+                cancelButtonText: 'Tidak',
+                reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $(this).parent().submit();
+                }
+            });
+        });
     });
 </script>
 

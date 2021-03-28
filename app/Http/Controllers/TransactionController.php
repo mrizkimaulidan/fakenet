@@ -116,6 +116,8 @@ class TransactionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Transaction::findOrFail($id)->delete();
+
+        return redirect()->route('transaksi.index')->with('success', 'Data berhasil dihapus!');
     }
 }

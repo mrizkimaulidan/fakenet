@@ -47,9 +47,13 @@
                                             data-id="{{ $transaction->id }}">
                                             <i class="fas fa-fw fa-edit"></i>
                                         </button>
-                                        <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-fw fa-trash"></i>
-                                        </button>
+                                        <form action="{{ route('transaksi.destroy', $transaction->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm delete-sweetalert">
+                                                <i class="fas fa-fw fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
