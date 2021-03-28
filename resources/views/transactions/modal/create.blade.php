@@ -10,12 +10,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#" method="POST">
+                <form action="{{ route('transaksi.store') }}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Klien</label>
+                                <label for="client_id">Klien</label>
                                 <select class="form-control" name="client_id" id="client_id">
                                     <option selected>--Pilih Klien--</option>
                                     @foreach ($clients as $client)
@@ -60,8 +60,8 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="status">Status</label>
-                                <select class="form-control" name="status" id="status">
+                                <label for="is_paid">Status</label>
+                                <select class="form-control" name="is_paid" id="is_paid">
                                     <option selected>--Pilih Status--</option>
                                     <option value="1">Lunas</option>
                                     <option value="0">Belum Lunas</option>

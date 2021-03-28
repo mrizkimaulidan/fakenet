@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -46,7 +47,17 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Transaction::create([
+            'client_id' => $request->client_id,
+            'user_id' => auth()->id(),
+            'day' => $request->day,
+            'month' => $request->month,
+            'amount' => $request->amount,
+            'is_paid' => $request->is_paid,
+            'date' => $request->date
+        ]);
+
+        return redirect()->route('transaksi.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
