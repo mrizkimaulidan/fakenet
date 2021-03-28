@@ -13,7 +13,7 @@
                         <div class="form-group">
                             <label for="name">Nama Klien</label>
                             <input type="text" class="form-control" name="name" id="name"
-                                placeholder="Masukkan nama klien">
+                                placeholder="Masukkan nama klien" autofocus>
                         </div>
                     </div>
 
