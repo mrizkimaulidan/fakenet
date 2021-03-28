@@ -34,7 +34,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('paket-internet.index') }}">
             <i class="fas fa-fw fa-boxes"></i>
             <span>Paket Internet</span></a>
     </li>

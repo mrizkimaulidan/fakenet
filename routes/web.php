@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InternetPackageController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +24,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('transaksi', TransactionController::class);
+Route::resource('paket-internet', InternetPackageController::class);
 
 require __DIR__ . '/auth.php';
