@@ -18,6 +18,10 @@
                                 <label for="exampleFormControlSelect1">Klien</label>
                                 <select class="form-control" name="client_id" id="client_id">
                                     <option selected>--Pilih Klien--</option>
+                                    @foreach ($clients as $client)
+                                    <option value="{{ $client->id }}">{{ $client->name }} - {{ $client->ip_address }}
+                                    </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -27,7 +31,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="day">Hari</label>
-                                <input type="number" class="form-control" name="day" id="day"
+                                <input type="number" class="form-control" name="day" id="day" value="{{ date('d') }}"
                                     placeholder="Masukkan angka hari">
                             </div>
                         </div>
@@ -37,12 +41,15 @@
                                 <label for="month">Bulan</label>
                                 <select class="form-control" name="month" id="month">
                                     <option selected>--Pilih Bulan--</option>
+                                    @foreach ($months as $key => $month)
+                                    <option value="{{ $key + 1 }}">{{ $month }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class=" row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="amount">Total Bayar</label>
@@ -67,7 +74,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="date">Tanggal</label>
-                                <input type="date" class="form-control" name="date" id="date">
+                                <input type="date" class="form-control" name="date" id="date"
+                                    value="{{ date('Y-m-d') }}">
                             </div>
                         </div>
                     </div>

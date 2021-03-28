@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -13,7 +14,18 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return view('transactions.index');
+        $clients = Client::select('id', 'name', 'ip_address')->get();
+
+        $months = [
+            'Januari', 'Februari',
+            'Maret', 'April',
+            'Mei', 'Juni',
+            'Juli', 'Agustus',
+            'September', 'Oktober',
+            'November', 'Desember'
+        ];
+
+        return view('transactions.index', compact('clients', 'months'));
     }
 
     /**
