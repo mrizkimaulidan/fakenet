@@ -11,11 +11,9 @@
                 <h6 class="m-0 font-weight-bold text-primary">Data Klien</h6>
             </div>
             <div class="card-body">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary float-right mb-3" data-toggle="modal"
-                    data-target="#addClientModal">
+                <a href="{{ route('klien.create') }}" class="btn btn-primary float-right mb-3">
                     Tambah Data
-                </button>
+                </a>
                 <div class="table-responsive">
                     <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
                         <thead class="text-center">

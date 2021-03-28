@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\InternetPackage;
 
 class ClientController extends Controller
 {
@@ -26,7 +28,9 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        $internet_packages = InternetPackage::select('id', 'name', 'price')->orderBy('price')->get();
+
+        return view('clients.create', compact('internet_packages'));
     }
 
     /**
@@ -37,7 +41,25 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->hasFile('house_image')) {
+            $path = 'images/clients/house-image/';
+
+            $file = $request->file('house_image');
+            $file_name = $path . Str::random(10) . $file->getClientOriginalName();
+
+            $file->move($path, $file_name);
+        }
+
+        Client::create([
+            'internet_package_id' => $request->internet_package_id,
+            'name' => $request->name,
+            'ip_address' => $request->ip_address,
+            'phone_number' => $request->phone_number,
+            'house_image' => $request->house_image,
+            'address' => $request->address,
+        ]);
+
+        return redirect()->route('klien.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**

@@ -27,8 +27,8 @@
     </div>
 
     <!-- Nav Item -->
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+    <li class="nav-item {{ request()->routeIs('klien.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('klien.index') }}">
             <i class="fas fa-fw fa-user"></i>
             <span>Klien</span></a>
     </li>
