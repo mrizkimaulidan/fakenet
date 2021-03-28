@@ -19,9 +19,9 @@ class CreateTransactionsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('day');
             $table->string('month');
+            $table->string('year');
             $table->bigInteger('amount');
             $table->boolean('is_paid');
-            $table->date('date');
             $table->timestamps();
         });
     }
