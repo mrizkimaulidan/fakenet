@@ -15,6 +15,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
+        $transactions = Transaction::select('id', 'client_id', 'user_id', 'is_paid', 'date')->get();
+
         $clients = Client::select('id', 'name', 'ip_address')->get();
 
         $months = [
@@ -26,7 +28,7 @@ class TransactionController extends Controller
             'November', 'Desember'
         ];
 
-        return view('transactions.index', compact('clients', 'months'));
+        return view('transactions.index', compact('transactions', 'clients', 'months'));
     }
 
     /**

@@ -28,14 +28,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($transactions as $transaction)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $transaction->user_id }}</td>
+                                <td>{{ date('d-m-Y', strtotime($transaction->date)) }}</td>
+                                <td>{{ $transaction->is_paid }}</td>
+                                <td>{{ $transaction->user_id }}</td>
                                 <td>$320,800</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
