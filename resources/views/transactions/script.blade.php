@@ -52,7 +52,7 @@
             $('#editTransactionModal form #is_paid').prop('disabled', true);
 
             $('#editTransactionModal form #client_id').prop('selectedIndex', 0);
-            $('#editTransactionModal form #day').val('');
+            $('#editTransactionModal form #day').prop('selectedIndex', 0);
             $('#editTransactionModal form #month').prop('selectedIndex', 0);
             $('#editTransactionModal form #year').val('');
             $('#editTransactionModal form #amount').val('');
