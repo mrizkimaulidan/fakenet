@@ -8,6 +8,7 @@
             url = url.replace('id', id);
 
             $('#detailTransactionModal form #client_id').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #client_ip').val('Sedang mengambil data..');
             $('#detailTransactionModal form #user_id').val('Sedang mengambil data..');
             $('#detailTransactionModal form #day').val('Sedang mengambil data..');
             $('#detailTransactionModal form #month').val('Sedang mengambil data..');
@@ -21,6 +22,7 @@
                 success: function(response) {
                     setTimeout(() => {
                         $('#detailTransactionModal form #client_id').val(response.data.client_name);
+                        $('#detailTransactionModal form #client_ip').val(response.data.client_ip);
                         $('#detailTransactionModal form #user_id').val(response.data.user_name);
                         $('#detailTransactionModal form #day').val(response.data.day);
                         $('#detailTransactionModal form #month').val(response.data.month);

@@ -18,6 +18,7 @@ class TransactionController extends Controller
 
         $data = [
             'client_name' => $transaction->client->name,
+            'client_ip' => $transaction->client->ip_address,
             'user_name' => $transaction->user->name,
             'day' => $transaction->day,
             'month' => $month,

@@ -12,10 +12,17 @@
             <div class="modal-body">
                 <form action="#">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="client_id">Klien</label>
                                 <input type="text" class="form-control" id="client_id" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="client_id">Alamat IP</label>
+                                <input type="text" class="form-control" id="client_ip" disabled>
                             </div>
                         </div>
                     </div>
