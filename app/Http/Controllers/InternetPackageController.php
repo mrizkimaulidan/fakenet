@@ -94,6 +94,8 @@ class InternetPackageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        InternetPackage::findOrFail($id)->delete();
+
+        return redirect()->route('paket-internet.index')->with('success', 'Data berhasil dihapus!');
     }
 }

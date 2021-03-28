@@ -39,7 +39,8 @@
                                             data-id="{{ $internet_package->id }}">
                                             <i class="fas fa-fw fa-edit"></i>
                                         </button>
-                                        <form action="#" method="POST">
+                                        <form action="{{ route('paket-internet.destroy', $internet_package->id) }}"
+                                            method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm delete-sweetalert">
