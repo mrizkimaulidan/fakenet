@@ -60,9 +60,10 @@
 @endsection
 
 @push('js')
-{{--  --}}
+@include('internet_packages.script')
 @endpush
 
 @push('modal')
 @include('internet_packages.modal.create')
+@include('internet_packages.modal.edit')
 @endpush

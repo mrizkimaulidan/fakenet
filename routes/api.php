@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\InternetPackageController;
 use App\Http\Controllers\API\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/transaksi/detail/{id}', [TransactionController::class, 'detail'])->name('api.transaksi.detail');
 Route::get('/transaksi/{id}', [TransactionController::class, 'show'])->name('api.transaksi.show');
+Route::get('/paket-internet/{id}', [InternetPackageController::class, 'show'])->name('api.paket-internet.show');

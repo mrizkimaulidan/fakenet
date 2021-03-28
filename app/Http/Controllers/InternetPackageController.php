@@ -76,7 +76,14 @@ class InternetPackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $internet_package = InternetPackage::findOrFail($id);
+
+        $internet_package->update([
+            'name' => $request->name,
+            'price' => $request->price
+        ]);
+
+        return redirect()->route('paket-internet.index')->with('success', 'Data berhasil diubah!');
     }
 
     /**
