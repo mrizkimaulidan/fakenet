@@ -70,7 +70,14 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $transaction->client->name }}</td>
                                 <td>{{ "$transaction->day-$transaction->month-$transaction->year" }}</td>
-                                <td>{{ get_is_paid_status($transaction->is_paid) }}</td>
+                                <td>
+                                    <span
+                                        class="badge badge-pill badge-{{ $transaction->is_paid ? 'primary' : 'danger' }} px-2 py-2 w-100"
+                                        data-toggle="tooltip" data-placement="top"
+                                        title="{{ get_is_paid_status($transaction->is_paid) }}">
+                                        {{ get_is_paid_status($transaction->is_paid) }}
+                                    </span>
+                                </td>
                                 <td>{{ $transaction->user->name }}</td>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
