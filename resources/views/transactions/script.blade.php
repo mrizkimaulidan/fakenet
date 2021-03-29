@@ -102,16 +102,16 @@
                         $('#editTransactionModal form #amount').prop('disabled', false);
                         $('#editTransactionModal form #is_paid').prop('disabled', false);
 
-                        $('#editTransactionModal form #client_id').val(response.data.client_id);
+                        $('#editTransactionModal form #client_id').val(response.data.client_id).select2();
 
                         $('#editTransactionModal form #internet_package_name').val(response.data.client.internet_package.name);
                         $('#editTransactionModal form #internet_package_price').val(response.data.client.internet_package.price);
 
-                        $('#editTransactionModal form #day').val(response.data.day);
-                        $('#editTransactionModal form #month').val(response.data.month);
+                        $('#editTransactionModal form #day').val(response.data.day).select2();
+                        $('#editTransactionModal form #month').val(response.data.month).select2();
                         $('#editTransactionModal form #year').val(response.data.year);
                         $('#editTransactionModal form #amount').val(response.data.amount);
-                        $('#editTransactionModal form #is_paid').val(response.data.is_paid);
+                        $('#editTransactionModal form #is_paid').val(response.data.is_paid).select2();
 
                         editTransactionModalButtonSubmit.prop('disabled', false);
 
