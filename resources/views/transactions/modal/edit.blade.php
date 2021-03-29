@@ -29,6 +29,24 @@
                     </div>
 
                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="internet_package_name">Nama Paket Internet</label>
+                                <input type="text" class="form-control" id="internet_package_name"
+                                    placeholder="Pilih klien terlebih dahulu" disabled>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="internet_package_price">Harga Paket Internet</label>
+                                <input type="text" class="form-control" id="internet_package_price"
+                                    placeholder="Pilih klien terlebih dahulu" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="day">Hari</label>
@@ -105,6 +123,7 @@
                                 <label for="amount">Total Bayar</label>
                                 <input type="number" class="form-control" name="amount" id="amount"
                                     placeholder="Masukkan total bayar">
+                                <small class="text-muted">*Total bayar harus sesuai dengan harga paket internet</small>
                             </div>
                         </div>
 

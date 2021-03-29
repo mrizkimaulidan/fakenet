@@ -37,7 +37,7 @@ class TransactionController extends Controller
 
     public function show(string $id): Response
     {
-        $transaction = Transaction::with('user', 'client')->findOrFail($id);
+        $transaction = Transaction::with('user', 'client.internet_package', 'client')->findOrFail($id);
 
         return response()->json([
             'status' => Response::HTTP_OK,
