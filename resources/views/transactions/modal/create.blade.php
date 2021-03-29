@@ -122,8 +122,7 @@
                                 <label for="amount">Total Bayar</label>
                                 <input type="number" class="form-control" name="amount" id="amount"
                                     placeholder="Masukkan total bayar">
-                                <small class="text-muted">*Total bayar harus sesuai dengan harga paket berlangganan
-                                    klien</small>
+                                <small class="text-muted">*Total bayar harus sesuai dengan harga paket internet</small>
                             </div>
                         </div>
 

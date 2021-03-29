@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class TransactionController extends Controller
 
     public function clientDetail(string $id)
     {
-        $transaction = Transaction::with('client.internet_package')->findOrFail($id);
+        $transaction = Client::with('internet_package')->findOrFail($id);
 
         return response()->json([
             'status' => Response::HTTP_OK,

@@ -94,14 +94,25 @@
             let url = "{{ route('api.transakasi-client.detail', 'id') }}";
             url = url.replace('id', id);
 
+            $('#addTransactionModal form #internet_package_name').val('Sedang mengambil data..');
+            $('#addTransactionModal form #internet_package_price').val('Sedang mengambil data..');
+            $('#addTransactionModal form #amount').val('');
+            $('#addTransactionModal form #amount').prop('disabled', true);
+
+            $('#addTransactionModal .modal-footer button[type=submit]').prop('disabled', true);
+
             $.ajax({
                 url: url,
                 type: "GET",
                 success: function(response) {
                     setTimeout(() => {
-                        $('#addTransactionModal form #internet_package_name').val(response.data.client.internet_package.name);
-                        $('#addTransactionModal form #internet_package_price').val(response.data.client.internet_package.price);
-                        $('#addTransactionModal form #amount').val(response.data.client.internet_package.price);
+                        $('#addTransactionModal form #internet_package_name').val(response.data.internet_package.name);
+                        $('#addTransactionModal form #internet_package_price').val(response.data.internet_package.price);
+                        $('#addTransactionModal form #amount').val(response.data.internet_package.price);
+
+                        $('#addTransactionModal form #amount').prop('disabled', false);
+
+                        $('#addTransactionModal .modal-footer button[type=submit]').prop('disabled', false);
                     }, 1000);
                 }
             });
