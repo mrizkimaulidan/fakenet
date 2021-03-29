@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use App\Models\InternetPackage;
 use App\Repositories\TransactionRepository;
 use Illuminate\Http\Request;
 
@@ -19,9 +21,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $sum_per_months = $this->transactionRepository->sumByAllMonths();
+        $total_client = Client::count();
+        $total_internet_package = InternetPackage::count();
 
-        return view('dashboard', compact('sum_per_months'));
+        $sum_per_months = $this->transactionRepository->sumByAllMonths();
+        $sum_this_month = indonesian_currency($this->transactionRepository->sumAmount(month: date('m')));
+        $sum_this_year = indonesian_currency($this->transactionRepository->sumAmount(year: date('Y')));
+
+        return view('dashboard', compact('total_client', 'total_internet_package', 'sum_per_months', 'sum_this_month', 'sum_this_year'));
     }
 
     /**
