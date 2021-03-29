@@ -44,4 +44,15 @@ class TransactionController extends Controller
             'data' => $transaction
         ]);
     }
+
+    public function clientDetail(string $id)
+    {
+        $transaction = Transaction::with('client.internet_package')->findOrFail($id);
+
+        return response()->json([
+            'status' => Response::HTTP_OK,
+            'message' => 'Berhasil mengambil data!',
+            'data' => $transaction
+        ]);
+    }
 }

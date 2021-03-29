@@ -26,5 +26,7 @@ Route::get('/chart-monthly', [DashboardChartController::class, 'chartMonthly'])-
 
 Route::get('/transaksi/detail/{id}', [TransactionController::class, 'detail'])->name('api.transaksi.detail');
 Route::get('/transaksi/{id}', [TransactionController::class, 'show'])->name('api.transaksi.show');
+Route::get('/transaksi/detail/klien/{id}', [TransactionController::class, 'clientDetail'])->name('api.transakasi-client.detail');
+
 Route::get('/paket-internet/{id}', [InternetPackageController::class, 'show'])->name('api.paket-internet.show');
 Route::get('/administrator-aplikasi/{id}', [AdministratorApplicationController::class, 'show'])->name('api.administrator-aplikasi.show');

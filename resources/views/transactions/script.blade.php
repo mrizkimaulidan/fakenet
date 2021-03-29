@@ -88,5 +88,23 @@
                 }
             });
         });
+
+        $('#client_id').change(function() {
+            let id = $(this).children('option:selected').val();
+            let url = "{{ route('api.transakasi-client.detail', 'id') }}";
+            url = url.replace('id', id);
+
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function(response) {
+                    setTimeout(() => {
+                        $('#addTransactionModal form #internet_package_name').val(response.data.client.internet_package.name);
+                        $('#addTransactionModal form #internet_package_price').val(response.data.client.internet_package.price);
+                        $('#addTransactionModal form #amount').val(response.data.client.internet_package.price);
+                    }, 1000);
+                }
+            });
+        });
     });
 </script>
