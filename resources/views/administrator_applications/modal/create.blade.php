@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('paket-internet.store') }}" method="POST">
+                <form action="{{ route('administrator-aplikasi.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="name">Nama</label>
