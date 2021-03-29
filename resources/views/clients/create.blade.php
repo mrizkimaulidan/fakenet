@@ -23,7 +23,8 @@
                             <select class="form-control" name="internet_package_id" id="internet_package_id">
                                 <option selected>--Pilih Paket Internet--</option>
                                 @foreach ($internet_packages as $internet_package)
-                                <option value="{{ $internet_package->id }}">{{ $internet_package->name }}</option>
+                                <option value="{{ $internet_package->id }}">{{ $internet_package->name }} -
+                                    {{ indonesian_currency($internet_package->price) }}</option>
                                 @endforeach
                             </select>
                         </div>
