@@ -9,7 +9,7 @@
             <form action="{{ route('klien.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-12 col-lg-4">
                         <div class="form-group">
                             <label for="name">Nama Klien</label>
                             <input type="text" class="form-control" name="name" id="name"
@@ -17,7 +17,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-12 col-lg-4">
                         <div class="form-group">
                             <label for="internet_package_id">Paket Internet</label>
                             <select class="form-control" name="internet_package_id" id="internet_package_id">
@@ -29,7 +29,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-12 col-lg-4">
                         <div class="form-group">
                             <label for="ip_address">Alamat IP</label>
                             <input type="text" class="form-control" name="ip_address" id="ip_address"
