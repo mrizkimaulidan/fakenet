@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Transaction;
+use App\Repositories\TransactionRepository;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
+    public function __construct(
+        private TransactionRepository $transactionRepository
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +25,10 @@ class TransactionController extends Controller
 
         $clients = Client::select('id', 'name', 'ip_address')->get();
 
-        return view('transactions.index', compact('transactions', 'clients'));
+        $amount_this_month = indonesian_currency($this->transactionRepository->sumAmount(month: date('m')));
+        $amount_this_year = indonesian_currency($this->transactionRepository->sumAmount(year: date('Y')));
+
+        return view('transactions.index', compact('transactions', 'clients', 'amount_this_month', 'amount_this_year'));
     }
 
     /**
