@@ -7,8 +7,7 @@
     url: url,
     type: "GET",
     success: function(response) {
-      console.log(response);
-
+      
       var myChart = new Chart(ctx, {
         type: "bar",
         data: {
