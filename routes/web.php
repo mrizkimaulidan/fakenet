@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministratorApplicationController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\InternetPackageController;
 use App\Http\Controllers\TransactionController;
@@ -27,5 +28,6 @@ Route::get('/dashboard', function () {
 Route::resource('klien', ClientController::class);
 Route::resource('transaksi', TransactionController::class);
 Route::resource('paket-internet', InternetPackageController::class);
+Route::resource('administrator-aplikasi', AdministratorApplicationController::class);
 
 require __DIR__ . '/auth.php';

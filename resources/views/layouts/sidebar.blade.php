@@ -39,8 +39,8 @@
             <span>Paket Internet</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+    <li class="nav-item {{ request()->routeIs('administrator-aplikasi.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('administrator-aplikasi.index') }}">
             <i class="fas fa-fw fa-user-shield"></i>
             <span>Administrator Aplikasi</span></a>
     </li>
