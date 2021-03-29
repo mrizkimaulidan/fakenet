@@ -26,4 +26,8 @@
     <!-- Sweetalert -->
     <link rel="stylesheet" href="{{ asset('vendor/sweetalert2/sweetalert2.css') }}">
 
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('vendor/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/select2/select2-bootstrap4.min.css') }}">
+
 </head>
