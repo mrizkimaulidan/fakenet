@@ -21,7 +21,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::select('id', 'client_id', 'user_id', 'is_paid', 'day', 'month', 'year')->get();
+        $transactions = Transaction::with('client', 'user')->select('id', 'client_id', 'user_id', 'is_paid', 'day', 'month', 'year')->get();
 
         $clients = Client::select('id', 'name', 'ip_address')->get();
 
