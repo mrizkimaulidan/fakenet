@@ -13,7 +13,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Total Klien</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_client }}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 counter">{{ $total_client }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -31,7 +31,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Total Paket Internet</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_internet_package }}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 counter">{{ $total_internet_package }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-boxes fa-2x text-gray-300"></i>
