@@ -1,7 +1,10 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; {{ config('app.name') }} {{ date('Y') }}</span>
+            <span>Copyright &copy; {{ config('app.name') }} {{ date('Y') }} | Created with <i
+                    class="fas fa-fw fa-heart text-danger"></i> by <a href="https://github.com/mrizkimaulidan"
+                    target="_blank">Muhammad
+                    Rizki Maulidan</a></span>
         </div>
     </div>
 </footer>
