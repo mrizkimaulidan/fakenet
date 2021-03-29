@@ -77,7 +77,20 @@ class AdministratorApplicationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $administrator_application = User::findOrFail($id);
+
+        if ($request->password !== null) {
+            $administrator_application->update([
+                'password' => bcrypt($request->password)
+            ]);
+        }
+
+        $administrator_application->update([
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
+
+        return redirect()->route('administrator-aplikasi.index')->with('success', 'Data berhasil diubah!');
     }
 
     /**

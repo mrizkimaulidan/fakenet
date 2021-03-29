@@ -28,6 +28,7 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password" id="password"
                             placeholder="Masukkan password">
+                        <small class="text-muted">*Kosongkan password jika tidak ingin diubah</small>
                     </div>
 
                     <div class="form-group">

@@ -38,7 +38,7 @@
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-success btn-sm edit-button"
                                             data-toggle="modal" data-target="#editAdministratorApplicationModal"
-                                            data-id="#">
+                                            data-id="{{ $administrator_application->id }}">
                                             <i class="fas fa-fw fa-edit"></i>
                                         </button>
                                         <form action="#" method="POST">
@@ -62,7 +62,7 @@
 @endsection
 
 @push('js')
-{{--  --}}
+@include('administrator_applications.script')
 @endpush
 
 @push('modal')
