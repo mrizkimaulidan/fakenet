@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdministratorApplicationController extends Controller
@@ -13,7 +14,9 @@ class AdministratorApplicationController extends Controller
      */
     public function index()
     {
-        return view('administrator_applications.index');
+        $administrator_applications = User::select('id', 'name', 'email', 'created_at')->get();
+
+        return view('administrator_applications.index', compact('administrator_applications'));
     }
 
     /**

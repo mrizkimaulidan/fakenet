@@ -28,11 +28,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($administrator_applications as $administrator_application)
                             <tr>
-                                <td>1</td>
-                                <td>123</td>
-                                <td>123</td>
-                                <td>123</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $administrator_application->name }}</td>
+                                <td>{{ $administrator_application->email }}</td>
+                                <td>{{ $administrator_application->created_at->format('d-m-Y H:i') }}</td>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-success btn-sm edit-button"
@@ -50,6 +51,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
