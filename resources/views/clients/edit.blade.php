@@ -26,7 +26,8 @@
                                 @foreach ($internet_packages as $internet_package)
                                 <option value="{{ $internet_package->id }}"
                                     {{ $internet_package->id === $client->internet_package_id ? 'selected' : '' }}>
-                                    {{ $internet_package->name }}</option>
+                                    {{ $internet_package->name }} - {{ indonesian_currency($internet_package->price) }}
+                                </option>
                                 @endforeach
                             </select>
                         </div>
