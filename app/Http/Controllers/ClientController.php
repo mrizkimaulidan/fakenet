@@ -130,6 +130,8 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Client::findOrFail($id)->delete();
+
+        return redirect()->route('klien.index')->with('success', 'Data berhasil dihapus!');
     }
 }

@@ -42,7 +42,7 @@
                                         <a href="{{ route('klien.edit', $client->id) }}" class="btn btn-success btn-sm">
                                             <i class="fas fa-fw fa-edit"></i>
                                         </a>
-                                        <form action="#" method="POST">
+                                        <form action="{{ route('klien.destroy', $client->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm delete-sweetalert">
