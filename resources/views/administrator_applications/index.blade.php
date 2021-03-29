@@ -41,7 +41,9 @@
                                             data-id="{{ $administrator_application->id }}">
                                             <i class="fas fa-fw fa-edit"></i>
                                         </button>
-                                        <form action="#" method="POST">
+                                        <form
+                                            action="{{ route('administrator-aplikasi.destroy', $administrator_application->id) }}"
+                                            method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm delete-button">
