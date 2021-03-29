@@ -20,7 +20,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama Klien</th>
-                                <th>Nama Paket Internet</th>
+                                <th>Paket Internet</th>
                                 <th>Nomor Handphone</th>
                                 <th>Alamat IP</th>
                                 <th>Aksi</th>
@@ -31,7 +31,12 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $client->name }}</td>
-                                <td>{{ $client->internet_package->name }}</td>
+                                <td>
+                                    <span class="badge badge-pill badge-primary px-2 py-2 w-100">
+                                        {{ $client->internet_package->name }} -
+                                        {{ indonesian_currency($client->internet_package->price) }}
+                                    </span>
+                                </td>
                                 <td>{{ $client->phone_number }}</td>
                                 <td>{{ $client->ip_address }}</td>
                                 <td class="text-center">
