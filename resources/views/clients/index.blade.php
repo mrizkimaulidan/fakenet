@@ -45,7 +45,7 @@
                                         <form action="{{ route('klien.destroy', $client->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm delete-sweetalert">
+                                            <button type="submit" class="btn btn-danger btn-sm delete-button">
                                                 <i class="fas fa-fw fa-trash"></i>
                                             </button>
                                         </form>

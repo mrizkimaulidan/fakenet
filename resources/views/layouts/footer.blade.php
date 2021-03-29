@@ -40,7 +40,7 @@
     $(function() {
         $('#datatable').DataTable();
 
-        $('.delete-sweetalert').click(function (e) {
+        $('.delete-button').click(function (e) {
             e.preventDefault();
             
             Swal.fire({
