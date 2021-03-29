@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $internet_package->name }}</td>
-                                <td>{{ $internet_package->price }}</td>
+                                <td>{{ indonesian_currency($internet_package->price) }}</td>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-success btn-sm edit-button"
