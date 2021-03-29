@@ -55,7 +55,7 @@ class ClientController extends Controller
             'name' => $request->name,
             'ip_address' => $request->ip_address,
             'phone_number' => $request->phone_number,
-            'house_image' => $request->house_image,
+            'house_image' => $file_name,
             'address' => $request->address,
         ]);
 
@@ -81,7 +81,10 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = Client::findOrFail($id);
+        $internet_packages = InternetPackage::select('id', 'name', 'price')->get();
+
+        return view('clients.edit', compact('client', 'internet_packages'));
     }
 
     /**
@@ -93,7 +96,30 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = Client::findOrFail($id);
+
+        if ($request->file('house_image') !== null) {
+            $path = 'images/clients/house-image/';
+
+            $file = $request->file('house_image');
+            $file_name = $path . Str::random(10) . $file->getClientOriginalName();
+
+            $file->move($path, $file_name);
+
+            $client->update([
+                'house_image' => $file_name
+            ]);
+        }
+
+        $client->update([
+            'internet_package_id' => $request->internet_package_id,
+            'name' => $request->name,
+            'ip_address' => $request->ip_address,
+            'phone_number' => $request->phone_number,
+            'address' => $request->address,
+        ]);
+
+        return redirect()->route('klien.index')->with('success', 'Data berhasil diubah!');
     }
 
     /**

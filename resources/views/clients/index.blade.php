@@ -39,9 +39,9 @@
                                         <button type="button" class="btn btn-primary btn-sm">
                                             <i class="fas fa-fw fa-search"></i>
                                         </button>
-                                        <button type="button" class="btn btn-success btn-sm">
+                                        <a href="{{ route('klien.edit', $client->id) }}" class="btn btn-success btn-sm">
                                             <i class="fas fa-fw fa-edit"></i>
-                                        </button>
+                                        </a>
                                         <form action="#" method="POST">
                                             @csrf
                                             @method('DELETE')
