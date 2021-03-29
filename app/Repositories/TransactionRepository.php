@@ -43,7 +43,7 @@ class TransactionRepository extends Controller
         $months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
 
         foreach ($months as $key => $month) {
-            $transaction_amount = $this->model->where('is_paid', 1)->where('month', $key)->where('year', date('Y'))->sum('amount');
+            $transaction_amount = $this->model->where('is_paid', 1)->where('month', ($key + 1))->where('year', date('Y'))->sum('amount');
 
             $result[$month] = $transaction_amount;
         }
