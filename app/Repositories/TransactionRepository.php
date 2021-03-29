@@ -33,6 +33,11 @@ class TransactionRepository extends Controller
         return $transaction_amount->where('year', $year)->sum('amount');
     }
 
+    /**
+     * Menghitung total transaksi setiap bulan di tahun ini.
+     *
+     * @return array
+     */
     public function sumByAllMonths(): array
     {
         $months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
