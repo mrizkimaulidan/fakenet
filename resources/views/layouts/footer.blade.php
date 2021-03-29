@@ -34,7 +34,7 @@
 <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
 <!-- Sweetalert -->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="{{ asset('vendor/sweetalert2/sweetalert2.js') }}"></script>
 
 <script>
     $(function() {
