@@ -38,7 +38,11 @@
                                     </span>
                                 </td>
                                 <td>{{ $client->phone_number }}</td>
-                                <td>{{ $client->ip_address }}</td>
+                                <td>
+                                    <span class="badge badge-pill badge-secondary px-2 py-2 w-100">
+                                        {{ $client->ip_address }}
+                                    </span>
+                                </td>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-primary btn-sm">
