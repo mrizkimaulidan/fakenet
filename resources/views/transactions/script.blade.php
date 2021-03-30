@@ -92,7 +92,6 @@
                 type: "GET",
                 success: function(response) {
                     setTimeout(() => {
-                        console.log(response);
                         $('#editTransactionModal form').attr('action', updateTransactionUrl);
 
                         $('#editTransactionModal form #client_id').prop('disabled', false);
