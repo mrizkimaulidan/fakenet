@@ -44,9 +44,6 @@
 
 <script>
     $(function() {
-        $('select').selectize({
-            placeholder: 'Pilih..'
-        });
 
         $('#datatable').DataTable({
             language: {

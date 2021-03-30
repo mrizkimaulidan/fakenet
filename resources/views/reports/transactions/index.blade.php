@@ -89,7 +89,7 @@
                                 <th>Nama Klien</th>
                                 <th>Tanggal</th>
                                 <th>Total Bayar</th>
-                                <th>Admin Pencatat</th>
+                                <th>Penagih</th>
                             </tr>
                         </thead>
                         <tbody>

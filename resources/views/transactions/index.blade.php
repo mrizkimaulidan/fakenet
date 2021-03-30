@@ -60,7 +60,7 @@
                                 <th>Nama Klien</th>
                                 <th>Tanggal</th>
                                 <th>Status</th>
-                                <th>Admin Pencatat</th>
+                                <th>Penagih</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>

@@ -19,6 +19,18 @@
                         <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                 </div>
+                <hr>
+                <div class="justify-content-center">
+                    <h4 class="small font-weight-bold">Klien baru pada hari ini : <span
+                            class="float-right text-{{ $count_new_client_this_day > 0 ? 'success' : 'danger' }} counter">{{ $count_new_client_this_day }}</span>
+                    </h4>
+                    <h4 class="small font-weight-bold">Klien baru pada bulan ini : <span
+                            class="float-right text-{{ $count_new_client_this_month > 0 ? 'success' : 'danger' }} counter">{{ $count_new_client_this_month }}</span>
+                    </h4>
+                    <h4 class="small font-weight-bold">Klien baru pada tahun ini : <span
+                            class="float-right text-{{ $count_new_client_this_year > 0 ? 'success' : 'danger' }} counter">{{ $count_new_client_this_year }}</span>
+                    </h4>
+                </div>
             </div>
         </div>
     </div>
@@ -31,12 +43,14 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Total Paket Internet</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800 counter">{{ $total_internet_package }}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 counter">
+                            {{ $total_internet_package }}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-boxes fa-2x text-gray-300"></i>
                     </div>
                 </div>
+                <hr>
             </div>
         </div>
     </div>
@@ -55,6 +69,7 @@
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                     </div>
                 </div>
+                <hr>
             </div>
         </div>
     </div>
@@ -73,6 +88,7 @@
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                     </div>
                 </div>
+                <hr>
             </div>
         </div>
     </div>
