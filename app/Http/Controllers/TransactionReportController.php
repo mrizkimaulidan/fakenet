@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\TransactionReportRepository;
 use Illuminate\Http\Request;
 
 class TransactionReportController extends Controller
 {
+    public function __construct(
+        private TransactionReportRepository $transactionReportRepository
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,10 @@ class TransactionReportController extends Controller
      */
     public function index()
     {
-        return view('reports.transactions.index');
+        $transactions_this_month = $this->transactionReportRepository->getTransactionsBy(month: date('m'));
+        $transactions_this_year = $this->transactionReportRepository->getTransactionsBy(year: date('Y'));
+
+        return view('reports.transactions.index', compact('transactions_this_month', 'transactions_this_year'));
     }
 
     /**
