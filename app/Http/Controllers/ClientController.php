@@ -70,7 +70,9 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        $client = Client::with('internet_package')->findOrFail($id);
+
+        return view('clients.show', compact('client'));
     }
 
     /**

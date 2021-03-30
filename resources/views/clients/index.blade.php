@@ -45,9 +45,9 @@
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('klien.show', $client->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fas fa-fw fa-search"></i>
-                                        </button>
+                                        </a>
                                         <a href="{{ route('klien.edit', $client->id) }}" class="btn btn-success btn-sm">
                                             <i class="fas fa-fw fa-edit"></i>
                                         </a>
