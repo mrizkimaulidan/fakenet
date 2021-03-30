@@ -40,10 +40,14 @@
 <script src="{{ asset('vendor/sweetalert2/sweetalert2.js') }}"></script>
 
 <!-- Select2 -->
-<script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
+<script src="{{ asset('vendor/selectize/js/standalone/selectize.js') }}"></script>
 
 <script>
     $(function() {
+        $('select').selectize({
+            placeholder: 'Pilih..'
+        });
+
         $('#datatable').DataTable({
             language: {
                 url: "https://cdn.datatables.net/plug-ins/1.10.22/i18n/id.json",
