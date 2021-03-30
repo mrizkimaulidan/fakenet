@@ -39,7 +39,7 @@
 <!-- Sweetalert -->
 <script src="{{ asset('vendor/sweetalert2/sweetalert2.js') }}"></script>
 
-<!-- Select2 -->
+<!-- Selectize -->
 <script src="{{ asset('vendor/selectize/js/standalone/selectize.js') }}"></script>
 
 <script>
