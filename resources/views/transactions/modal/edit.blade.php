@@ -17,7 +17,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="client_id">Klien</label>
-                                <select class="form-control select" name="client_id" id="client_id">
+                                <select class="form-control" name="client_id" id="client_id">
                                     <option selected>--Pilih Klien--</option>
                                     @foreach ($clients as $client)
                                     <option value="{{ $client->id }}">{{ $client->name }} - {{ $client->ip_address }}
@@ -50,7 +50,7 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="form-group">
                                 <label for="day">Hari</label>
-                                <select class="form-control select" name="day" id="day">
+                                <select class="form-control" name="day" id="day">
                                     <option selected>--Pilih Hari--</option>
                                     <option value="01">01</option>
                                     <option value="02">02</option>
@@ -90,7 +90,7 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="form-group">
                                 <label for="month">Bulan</label>
-                                <select class="form-control select" name="month" id="month">
+                                <select class="form-control" name="month" id="month">
                                     <option selected>--Pilih Bulan--</option>
                                     <option value="01">Januari</option>
                                     <option value="02">Februari</option>
@@ -130,7 +130,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="is_paid">Status</label>
-                                <select class="form-control select" name="is_paid" id="is_paid">
+                                <select class="form-control" name="is_paid" id="is_paid">
                                     <option selected>--Pilih Status--</option>
                                     <option value="1">Lunas</option>
                                     <option value="0">Belum Lunas</option>
