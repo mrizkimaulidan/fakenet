@@ -3,7 +3,7 @@
 
         $('#addTransactionModal form #client_id').change(function() {
             let id = $(this).children('option:selected').val();
-            let url = "{{ route('api.transakasi-client.detail', 'id') }}";
+            let url = "{{ route('api.tagihan-client.detail', 'id') }}";
             url = url.replace('id', id);
 
             $('#addTransactionModal form #internet_package_name').val('Sedang mengambil data..');
@@ -27,7 +27,7 @@
 
         $('.detail-button').click(function() {
             let id = $(this).data('id');
-            let url = "{{ route('api.transaksi.detail', 'id') }}";
+            let url = "{{ route('api.tagihan.detail', 'id') }}";
 
             url = url.replace('id', id);
 
@@ -62,7 +62,7 @@
 
         $('.edit-button').click(function() {
             let id = $(this).data('id');
-            let showTransactionUrl = "{{ route('api.transaksi.show', 'id') }}";
+            let showTransactionUrl = "{{ route('api.tagihan.show', 'id') }}";
             let updateTransactionUrl = "{{ route('tagihan.update', 'id') }}";
 
             showTransactionUrl = showTransactionUrl.replace('id', id);
@@ -116,7 +116,7 @@
 
         $('#editTransactionModal form #client_id').change(function() {
             let id = $(this).children('option:selected').val();
-            let url = "{{ route('api.transakasi-client.detail', 'id') }}";
+            let url = "{{ route('api.tagihan.detail', 'id') }}";
             url = url.replace('id', id);
 
             $('#editTransactionModal form #internet_package_name').val('Sedang mengambil data..');
