@@ -87,9 +87,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="amount">Total Bayar</label>
-                                <input type="number" class="form-control" name="amount" id="amount"
-                                    placeholder="Masukkan total bayar">
-                                <small class="text-muted">*Total bayar harus sesuai dengan harga paket internet</small>
+                                <select class="form-control" name="amount" id="amount">
+                                    <option selected>Pilih..</option>
+                                    @foreach ($internet_packages as $internet_package)
+                                    <option value="{{ $internet_package->price }}">{{ $internet_package->name }}
+                                        ({{ indonesian_currency($internet_package->price) }})</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 

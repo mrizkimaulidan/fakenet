@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\InternetPackage;
 use App\Models\Transaction;
 use App\Repositories\TransactionRepository;
 use Carbon\Carbon;
@@ -25,11 +26,12 @@ class TransactionController extends Controller
         $transactions = Transaction::with('client', 'user')->select('id', 'client_id', 'user_id', 'is_paid', 'day', 'month', 'year')->get();
 
         $clients = Client::select('id', 'name', 'ip_address')->get();
+        $internet_packages = InternetPackage::select('name', 'price')->get();
 
         $amount_this_month = indonesian_currency($this->transactionRepository->sumAmount(month: date('m')));
         $amount_this_year = indonesian_currency($this->transactionRepository->sumAmount(year: date('Y')));
 
-        return view('transactions.index', compact('transactions', 'clients', 'amount_this_month', 'amount_this_year'));
+        return view('transactions.index', compact('transactions', 'clients', 'internet_packages', 'amount_this_month', 'amount_this_year'));
     }
 
     /**

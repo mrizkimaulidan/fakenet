@@ -8,7 +8,6 @@
 
             $('#addTransactionModal form #internet_package_name').val('Sedang mengambil data..');
             $('#addTransactionModal form #internet_package_price').val('Sedang mengambil data..');
-            $('#addTransactionModal form #amount').val('');
 
             $('#addTransactionModal .modal-footer button[type=submit]').prop('disabled', true);
 
