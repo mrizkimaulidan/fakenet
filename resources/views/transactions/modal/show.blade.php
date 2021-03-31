@@ -58,31 +58,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class=" row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="amount">Total Bayar</label>
-                                <input type="text" class="form-control" id="amount" disabled>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="is_paid">Status</label>
-                                <input type="text" class="form-control" id="is_paid" disabled>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="note">Keterangan</label>
-                                <textarea class="form-control" id="note" rows="3" disabled></textarea>
-                            </div>
-                        </div>
-                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

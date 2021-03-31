@@ -23,7 +23,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::with('client', 'user')->select('id', 'client_id', 'user_id', 'is_paid', 'day', 'month', 'year')->get();
+        $transactions = Transaction::with('client', 'user')->select('id', 'client_id', 'user_id', 'day', 'month', 'year')->get();
 
         $clients = Client::select('id', 'name', 'ip_address')->get();
         $internet_packages = InternetPackage::select('name', 'price')->get();
@@ -52,15 +52,15 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
+        $client = Client::findOrFail($request->client_id);
+
         Transaction::create([
             'client_id' => $request->client_id,
             'user_id' => auth()->id(),
             'day' => $request->day,
             'month' => $request->month,
             'year' => $request->year,
-            'amount' => $request->amount,
-            'is_paid' => $request->is_paid,
-            'note' => $request->note
+            'amount' => $client->internet_package->price,
         ]);
 
         return redirect()->route('transaksi.index')->with('success', 'Data berhasil ditambahkan!');

@@ -21,7 +21,7 @@ class TransactionReportRepository extends Controller
      */
     public function getTransactionsBy(string $month = null, string $year = null): Object
     {
-        $transactions = $this->model->with('client', 'user')->where('is_paid', 1);
+        $transactions = $this->model->with('client', 'user');
 
         if ($month !== null) {
             return $transactions->where('month', $month)->where('year', date('Y'))->latest()->get();

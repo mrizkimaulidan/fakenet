@@ -21,8 +21,6 @@ class CreateTransactionsTable extends Migration
             $table->string('month');
             $table->string('year');
             $table->bigInteger('amount');
-            $table->boolean('is_paid');
-            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

@@ -82,44 +82,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="amount">Total Bayar</label>
-                                <select class="form-control" name="amount" id="amount">
-                                    <option selected>Pilih..</option>
-                                    @foreach ($internet_packages as $internet_package)
-                                    <option value="{{ $internet_package->price }}">{{ $internet_package->name }}
-                                        ({{ indonesian_currency($internet_package->price) }})</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="is_paid">Status</label>
-                                <select class="form-control" name="is_paid" id="is_paid">
-                                    <option>Pilih..</option>
-                                    <option value="1">Lunas</option>
-                                    <option value="0">Belum Lunas</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="note">Keterangan</label>
-                                <textarea class="form-control" name="note" id="note" rows="3"
-                                    placeholder="Masukkan keterangan (opsional)"></textarea>
-                                <small class="text-muted">*Jika status belum lunas masukkan keterangan. Jika status
-                                    lunas kosongkan saja</small>
-                            </div>
-                        </div>
-                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

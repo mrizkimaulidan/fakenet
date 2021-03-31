@@ -24,7 +24,7 @@ class TransactionRepository extends Controller
      */
     public function sumAmount(string $month = null, string $year = null): Int
     {
-        $transaction_amount = $this->model->where('is_paid', 1);
+        $transaction_amount = $this->model;
 
         if ($month !== null) {
             return $transaction_amount->where('month', $month)->where('year', date('Y'))->sum('amount');
@@ -43,7 +43,7 @@ class TransactionRepository extends Controller
         $months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
 
         foreach ($months as $key => $month) {
-            $transaction_amount = $this->model->where('is_paid', 1)->where('month', ($key + 1))->where('year', date('Y'))->sum('amount');
+            $transaction_amount = $this->model->where('month', ($key + 1))->where('year', date('Y'))->sum('amount');
 
             $result[$month] = $transaction_amount;
         }

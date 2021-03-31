@@ -23,7 +23,6 @@ class TransactionSeeder extends Seeder
                 'month' => date('m'),
                 'year' => date('Y'),
                 'amount' => 100000,
-                'is_paid' => 1
             ]);
         }
     }
