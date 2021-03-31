@@ -14,7 +14,7 @@ class AdministratorApplicationController extends Controller
         return response()->json([
             'status' => Response::HTTP_OK,
             'message' => 'Data berhasil diambil!',
-            'data' => User::findOrFail($id)
+            'data' => User::with('position:id,name')->findOrFail($id)
         ], Response::HTTP_OK);
     }
 }

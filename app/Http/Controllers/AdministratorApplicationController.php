@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Position;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,10 @@ class AdministratorApplicationController extends Controller
      */
     public function index()
     {
-        $administrator_applications = User::select('id', 'name', 'email', 'created_at')->get();
+        $administrator_applications = User::with('position')->select('id', 'position_id', 'name', 'email', 'created_at')->get();
+        $positions = Position::select('id', 'name')->get();
 
-        return view('administrator_applications.index', compact('administrator_applications'));
+        return view('administrator_applications.index', compact('administrator_applications', 'positions'));
     }
 
     /**
@@ -38,6 +40,7 @@ class AdministratorApplicationController extends Controller
     public function store(Request $request)
     {
         User::create([
+            'position_id' => $request->position_id,
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password)
@@ -86,6 +89,7 @@ class AdministratorApplicationController extends Controller
         }
 
         $administrator_application->update([
+            'position_id' => $request->position_id,
             'name' => $request->name,
             'email' => $request->email
         ]);

@@ -19,6 +19,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="position_id">Jabatan</label>
+                        <select name="position_id" class="form-control" id="position_id">
+                            <option selected>Pilih..</option>
+                            @foreach ($positions as $position)
+                            <option value="{{ $position->id }}">{{ $position->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="email">Alamat Email</label>
                         <input type="email" class="form-control" name="email" id="email"
                             placeholder="Masukkan alamat email">

@@ -22,6 +22,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nama</th>
+                                <th>Jabatan</th>
                                 <th>Email</th>
                                 <th>Tanggal Ditambahkan</th>
                                 <th>Aksi</th>
@@ -32,6 +33,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $administrator_application->name }}</td>
+                                <td>{{ $administrator_application->position->name }}</td>
                                 <td>{{ $administrator_application->email }}</td>
                                 <td>{{ $administrator_application->created_at->format('d-m-Y H:i') }}</td>
                                 <td class="text-center">
