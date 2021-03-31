@@ -15,17 +15,17 @@ class InternetPackageSeeder extends Seeder
     public function run()
     {
         InternetPackage::create([
-            'name' => '5MB',
-            'price' => 100000
+            'name' => '3MB',
+            'price' => 150000
         ]);
 
         InternetPackage::create([
-            'name' => '10MB',
+            'name' => '5MB',
             'price' => 200000
         ]);
 
         InternetPackage::create([
-            'name' => '15MB',
+            'name' => '7MB',
             'price' => 250000
         ]);
     }
