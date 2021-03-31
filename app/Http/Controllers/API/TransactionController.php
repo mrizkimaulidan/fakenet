@@ -17,11 +17,14 @@ class TransactionController extends Controller
 
         $data = [
             'client_name' => $transaction->client->name,
+            'internet_package_name' => $transaction->client->internet_package->name,
+            'internet_package_price' => indonesian_currency($transaction->client->internet_package->price),
             'client_ip' => $transaction->client->ip_address,
             'user_name' => $transaction->user->name,
             'day' => $transaction->day,
             'month' => $transaction->month,
-            'year' => $transaction->year
+            'year' => $transaction->year,
+            'amount' => indonesian_currency($transaction->amount)
         ];
 
         return response()->json([

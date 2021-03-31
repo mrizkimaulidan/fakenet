@@ -33,10 +33,13 @@
 
             $('#detailTransactionModal form #client_id').val('Sedang mengambil data..');
             $('#detailTransactionModal form #client_ip').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #internet_package_name').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #internet_package_price').val('Sedang mengambil data..');
             $('#detailTransactionModal form #user_id').val('Sedang mengambil data..');
             $('#detailTransactionModal form #day').val('Sedang mengambil data..');
             $('#detailTransactionModal form #month').val('Sedang mengambil data..');
             $('#detailTransactionModal form #year').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #amount').val('Sedang mengambil data..');
 
             $.ajax({
                 url: url,
@@ -45,10 +48,13 @@
                     setTimeout(() => {
                         $('#detailTransactionModal form #client_id').val(response.data.client_name);
                         $('#detailTransactionModal form #client_ip').val(response.data.client_ip);
+                        $('#detailTransactionModal form #internet_package_name').val(response.data.internet_package_name);
+                        $('#detailTransactionModal form #internet_package_price').val(response.data.internet_package_price);
                         $('#detailTransactionModal form #user_id').val(response.data.user_name);
                         $('#detailTransactionModal form #day').val(response.data.day);
                         $('#detailTransactionModal form #month').val(response.data.month);
                         $('#detailTransactionModal form #year').val(response.data.year);
+                        $('#detailTransactionModal form #amount').val(response.data.amount);
                     }, 1000);
                 }
             });
