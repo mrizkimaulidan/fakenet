@@ -45,10 +45,10 @@
             <span>FakeNet</span></a>
     </li>
 
-    <li class="nav-item {{ request()->routeIs('transaksi.*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('transaksi.index') }}">
+    <li class="nav-item {{ request()->routeIs('tagihan.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('tagihan.index') }}">
             <i class="fas fa-fw fa-money-check"></i>
-            <span>Transaksi</span></a>
+            <span>Tagihan</span></a>
     </li>
 
     <!-- Divider -->

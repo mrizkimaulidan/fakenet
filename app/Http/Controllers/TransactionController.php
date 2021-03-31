@@ -63,7 +63,7 @@ class TransactionController extends Controller
             'amount' => $client->internet_package->price,
         ]);
 
-        return redirect()->route('transaksi.index')->with('success', 'Data berhasil ditambahkan!');
+        return redirect()->route('tagihan.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -105,12 +105,10 @@ class TransactionController extends Controller
             'day' => $request->day,
             'month' => $request->month,
             'year' => $request->year,
-            'amount' => $request->amount,
-            'is_paid' => $request->is_paid,
-            'note' => $request->note
+            'amount' => $transaction->client->internet_package->price
         ]);
 
-        return redirect()->route('transaksi.index')->with('success', 'Data berhasil diubah!');
+        return redirect()->route('tagihan.index')->with('success', 'Data berhasil diubah!');
     }
 
     /**
@@ -123,6 +121,6 @@ class TransactionController extends Controller
     {
         Transaction::findOrFail($id)->delete();
 
-        return redirect()->route('transaksi.index')->with('success', 'Data berhasil dihapus!');
+        return redirect()->route('tagihan.index')->with('success', 'Data berhasil dihapus!');
     }
 }

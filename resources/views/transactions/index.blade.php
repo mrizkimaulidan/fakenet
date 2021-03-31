@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-'title' => 'Halaman Transaksi'
+'title' => 'Halaman Tagihan'
 ])
 
 @section('content')
@@ -44,7 +44,7 @@
         @include('components.alert-message')
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Transaksi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Tagihan</h6>
             </div>
             <div class="card-body">
                 <!-- Button trigger modal -->
@@ -82,7 +82,7 @@
                                             data-id="{{ $transaction->id }}">
                                             <i class="fas fa-fw fa-edit"></i>
                                         </button>
-                                        <form action="{{ route('transaksi.destroy', $transaction->id) }}" method="POST">
+                                        <form action="{{ route('tagihan.destroy', $transaction->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm delete-button">

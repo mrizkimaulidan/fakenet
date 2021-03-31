@@ -57,7 +57,7 @@
         $('.edit-button').click(function() {
             let id = $(this).data('id');
             let showTransactionUrl = "{{ route('api.transaksi.show', 'id') }}";
-            let updateTransactionUrl = "{{ route('transaksi.update', 'id') }}";
+            let updateTransactionUrl = "{{ route('tagihan.update', 'id') }}";
 
             showTransactionUrl = showTransactionUrl.replace('id', id);
             updateTransactionUrl = updateTransactionUrl.replace('id', id);

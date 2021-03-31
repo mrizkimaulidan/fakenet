@@ -26,7 +26,7 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::resource('klien', ClientController::class);
-Route::resource('transaksi', TransactionController::class);
+Route::resource('tagihan', TransactionController::class);
 Route::resource('paket-internet', InternetPackageController::class);
 Route::resource('administrator-aplikasi', AdministratorApplicationController::class);
 
