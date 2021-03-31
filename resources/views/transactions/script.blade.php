@@ -76,6 +76,7 @@
             $('#editTransactionModal form #day').prop('disabled', true);
             $('#editTransactionModal form #month').prop('disabled', true);
             $('#editTransactionModal form #year').prop('disabled', true);
+            $('#editTransactionModal form #year').prop('disabled', true);
             $('#editTransactionModal form #amount').prop('disabled', true);
             $('#editTransactionModal form #is_paid').prop('disabled', true);
             $('#editTransactionModal form #note').prop('disabled', true);
@@ -84,9 +85,9 @@
             $('#editTransactionModal form #day').prop('selectedIndex', 0);
             $('#editTransactionModal form #month').prop('selectedIndex', 0);
             $('#editTransactionModal form #year').val('');
+            $('#editTransactionModal form #amount').prop('selectedIndex', 0);
             $('#editTransactionModal form #internet_package_name').val('');
             $('#editTransactionModal form #internet_package_price').val('');
-            $('#editTransactionModal form #amount').val('');
             $('#editTransactionModal form #is_paid').prop('selectedIndex', 0);
 
             $.ajax({
