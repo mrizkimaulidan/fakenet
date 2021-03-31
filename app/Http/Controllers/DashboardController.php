@@ -29,12 +29,13 @@ class DashboardController extends Controller
 
         $total_client = Client::count();
         $total_internet_package = InternetPackage::count();
+        $internet_packages = InternetPackage::select('name', 'price')->get();
 
         $sum_per_months = $this->transactionRepository->sumByAllMonths();
         $sum_this_month = indonesian_currency($this->transactionRepository->sumAmount(month: date('m')));
         $sum_this_year = indonesian_currency($this->transactionRepository->sumAmount(year: date('Y')));
 
-        return view('dashboard', compact('count_new_client_this_day', 'count_new_client_this_month', 'count_new_client_this_year', 'total_client', 'total_internet_package', 'sum_per_months', 'sum_this_month', 'sum_this_year'));
+        return view('dashboard', compact('count_new_client_this_day', 'count_new_client_this_month', 'count_new_client_this_year', 'total_client', 'total_internet_package', 'internet_packages', 'sum_per_months', 'sum_this_month', 'sum_this_year'));
     }
 
     /**

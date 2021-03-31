@@ -51,6 +51,13 @@
                     </div>
                 </div>
                 <hr>
+                <div class="justify-content-center">
+                    @foreach ($internet_packages as $internet_package)
+                    <h4 class="small font-weight-bold">{{ $internet_package->name }} : <span
+                            class="float-right">{{ indonesian_currency($internet_package->price) }}</span>
+                    </h4>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
