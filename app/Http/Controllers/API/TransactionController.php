@@ -26,6 +26,7 @@ class TransactionController extends Controller
             'year' => $transaction->year,
             'amount' => indonesian_currency($transaction->amount),
             'is_paid' => get_is_paid_status($transaction->is_paid),
+            'note' => $transaction->note
         ];
 
         return response()->json([

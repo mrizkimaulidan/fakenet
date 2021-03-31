@@ -57,7 +57,8 @@ class TransactionController extends Controller
             'month' => $request->month,
             'year' => $request->year,
             'amount' => $request->amount,
-            'is_paid' => $request->is_paid
+            'is_paid' => $request->is_paid,
+            'note' => $request->note
         ]);
 
         return redirect()->route('transaksi.index')->with('success', 'Data berhasil ditambahkan!');
@@ -103,7 +104,8 @@ class TransactionController extends Controller
             'month' => $request->month,
             'year' => $request->year,
             'amount' => $request->amount,
-            'is_paid' => $request->is_paid
+            'is_paid' => $request->is_paid,
+            'note' => $request->note
         ]);
 
         return redirect()->route('transaksi.index')->with('success', 'Data berhasil diubah!');

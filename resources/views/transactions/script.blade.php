@@ -40,6 +40,7 @@
             $('#detailTransactionModal form #year').val('Sedang mengambil data..');
             $('#detailTransactionModal form #amount').val('Sedang mengambil data..');
             $('#detailTransactionModal form #is_paid').val('Sedang mengambil data..');
+            $('#detailTransactionModal form #note').val('Sedang mengambil data..');
 
             $.ajax({
                 url: url,
@@ -54,6 +55,7 @@
                         $('#detailTransactionModal form #year').val(response.data.year);
                         $('#detailTransactionModal form #amount').val(response.data.amount);
                         $('#detailTransactionModal form #is_paid').val(response.data.is_paid);
+                        $('#detailTransactionModal form #note').val(response.data.note);
                     }, 1000);
                 }
             });
@@ -77,6 +79,7 @@
             $('#editTransactionModal form #year').prop('disabled', true);
             $('#editTransactionModal form #amount').prop('disabled', true);
             $('#editTransactionModal form #is_paid').prop('disabled', true);
+            $('#editTransactionModal form #note').prop('disabled', true);
 
             $('#editTransactionModal form #client_id').prop('selectedIndex', 0);
             $('#editTransactionModal form #day').prop('selectedIndex', 0);
@@ -100,6 +103,7 @@
                         $('#editTransactionModal form #year').prop('disabled', false);
                         $('#editTransactionModal form #amount').prop('disabled', false);
                         $('#editTransactionModal form #is_paid').prop('disabled', false);
+                        $('#editTransactionModal form #note').prop('disabled', false);
 
                         $('#editTransactionModal form #client_id').val(response.data.client_id);
 
@@ -111,6 +115,7 @@
                         $('#editTransactionModal form #year').val(response.data.year);
                         $('#editTransactionModal form #amount').val(response.data.amount);
                         $('#editTransactionModal form #is_paid').val(response.data.is_paid);
+                        $('#editTransactionModal form #note').val(response.data.note);
 
                         editTransactionModalButtonSubmit.prop('disabled', false);
 

@@ -104,6 +104,18 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="note">Keterangan</label>
+                                <textarea class="form-control" name="note" id="note" rows="3"
+                                    placeholder="Masukkan keterangan (opsional)"></textarea>
+                                <small class="text-muted">*Jika status belum lunas masukkan keterangan. Jika status
+                                    lunas kosongkan saja</small>
+                            </div>
+                        </div>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
