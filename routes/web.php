@@ -33,6 +33,7 @@ Route::resource('administrator-aplikasi', AdministratorApplicationController::cl
 Route::name('laporan.')->prefix('laporan')->group(function () {
     Route::resource('tagihan', TransactionReportController::class);
     Route::get('/export/{year}', [TransactionReportController::class, 'export'])->name('export.year');
+    Route::get('/export/iuran/{day}/{year}', [TransactionReportController::class, 'listOfDuesExport'])->name('export.dues');
 });
 
 require __DIR__ . '/auth.php';
