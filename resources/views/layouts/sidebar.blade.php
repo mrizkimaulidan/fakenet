@@ -69,8 +69,8 @@
         <div id="collapsePages" class="collapse {{ request()->routeIs('laporan.*') ? 'show' : '' }}"
             aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ request()->routeIs('laporan.transaksi.index') ? 'active' : '' }}"
-                    href="{{ route('laporan.transaksi.index') }}">Transaksi</a>
+                <a class="collapse-item {{ request()->routeIs('laporan.tagihan.index') ? 'active' : '' }}"
+                    href="{{ route('laporan.tagihan.index') }}">Tagihan</a>
             </div>
         </div>
     </li>

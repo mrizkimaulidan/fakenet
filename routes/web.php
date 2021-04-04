@@ -31,7 +31,7 @@ Route::resource('paket-internet', InternetPackageController::class);
 Route::resource('administrator-aplikasi', AdministratorApplicationController::class);
 
 Route::name('laporan.')->prefix('laporan')->group(function () {
-    Route::resource('transaksi', TransactionReportController::class);
+    Route::resource('tagihan', TransactionReportController::class);
     Route::get('/export/{year}', [TransactionReportController::class, 'export'])->name('export.year');
 });
 
