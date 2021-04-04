@@ -82,7 +82,8 @@ class TransactionReportController extends Controller
 
     public function listOfDuesExport($day, $year)
     {
-        $transactions = Transaction::with('client')->where('day', $day)->where('month', 1)->where('year', $year)->get();
+        $transactions = Transaction::with('client')->where('day', $day)->where('year', $year)->get()->unique('client_id');
+        // dd($transactions);
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet()->mergeCells('A1:E1')->mergeCells('I3:T3');
@@ -124,7 +125,7 @@ class TransactionReportController extends Controller
 
             foreach (range('I', 'T') as $key => $paragraph) {
                 foreach (Transaction::with('client')->where('client_id', $row->client_id)->where('month', sprintf('%02d', $key + 1))->where('year', $year)->get() as $key => $transaction_by_user_id) {
-                    $sheet->setCellValue($paragraph . 5, $transaction_by_user_id->amount);
+                    $sheet->setCellValue($paragraph . $cell, $transaction_by_user_id->amount);
                 }
             }
 
