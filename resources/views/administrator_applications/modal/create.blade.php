@@ -35,14 +35,27 @@
 
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" name="password" id="password"
-                            placeholder="Masukkan password">
+                        <div class="input-group">
+                            <input type="password" class="form-control" name="password" id="password"
+                                placeholder="Masukkan password">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="password-button-eye"><i
+                                        class="fas fa-eye" id="password-eye-class"></i></button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="password_confirmation">Ulangi Password</label>
-                        <input type="password" class="form-control" name="password_confirmation"
-                            id="password_confirmation" placeholder="Ulangi password">
+                        <div class="input-group">
+                            <input type="password" class="form-control" name="password_confirmation"
+                                id="password_confirmation" placeholder="Ulangi password">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button"
+                                    id="password-confirmation-button-eye"><i class="fas fa-eye"
+                                        id="password-confirmation-eye-class"></i></button>
+                            </div>
+                        </div>
                     </div>
             </div>
             <div class="modal-footer">

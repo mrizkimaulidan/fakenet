@@ -1,5 +1,32 @@
 <script>
     $(function() {
+
+        $('#password-button-eye').click(function() {
+            let inputPassword = $('#password');
+
+            if (inputPassword.attr('type') == 'password') {
+                inputPassword.attr('type', 'text');
+                $('#password-eye-class').addClass('fa-eye-slash').removeClass('fa-eye');
+            } else {
+                inputPassword.attr('type', 'password');
+                $('#password-eye-class').addClass('fa-eye').removeClass('fa-eye-slash');
+            }
+
+        });
+
+        $('#password-confirmation-button-eye').click(function() {
+            let inputPassword = $('#password_confirmation');
+
+            if (inputPassword.attr('type') == 'password') {
+                inputPassword.attr('type', 'text');
+                $('#password-confirmation-eye-class').addClass('fa-eye-slash').removeClass('fa-eye');
+            } else {
+                inputPassword.attr('type', 'password');
+                $('#password-confirmation-eye-class').addClass('fa-eye').removeClass('fa-eye-slash');
+            }
+
+        });
+
         $('.edit-button').click(function() {
             let id = $(this).data('id');
             let url = "{{ route('api.administrator-aplikasi.show', 'id') }}";
