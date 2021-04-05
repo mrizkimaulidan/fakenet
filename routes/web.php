@@ -23,17 +23,19 @@ Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::resource('klien', ClientController::class);
-Route::resource('tagihan', TransactionController::class);
-Route::resource('paket-internet', InternetPackageController::class);
-Route::resource('administrator-aplikasi', AdministratorApplicationController::class);
+    Route::resource('klien', ClientController::class);
+    Route::resource('tagihan', TransactionController::class);
+    Route::resource('paket-internet', InternetPackageController::class);
+    Route::resource('administrator-aplikasi', AdministratorApplicationController::class);
 
-Route::name('laporan.')->prefix('laporan')->group(function () {
-    Route::resource('tagihan', TransactionReportController::class);
-    Route::get('/export/{year}', [TransactionReportController::class, 'export'])->name('export.year');
-    Route::get('/export/iuran/{day}/{year}', [TransactionReportController::class, 'listOfDuesExport'])->name('export.dues');
+    Route::name('laporan.')->prefix('laporan')->group(function () {
+        Route::resource('tagihan', TransactionReportController::class);
+        Route::get('/export/{year}', [TransactionReportController::class, 'export'])->name('export.year');
+        Route::get('/export/iuran/{day}/{year}', [TransactionReportController::class, 'listOfDuesExport'])->name('export.dues');
+    });
 });
 
 require __DIR__ . '/auth.php';
