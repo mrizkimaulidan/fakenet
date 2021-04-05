@@ -14,12 +14,13 @@
                     @csrf
                     <div class="form-group">
                         <label for="name">Nama Paket</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan nama paket">
+                        <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}"
+                            placeholder="Masukkan nama paket">
                     </div>
 
                     <div class="form-group">
                         <label for="price">Harga</label>
-                        <input type="number" class="form-control" name="price" id="price"
+                        <input type="number" class="form-control" name="price" id="price" value="{{ old('price') }}"
                             placeholder="Masukkan harga paket">
                     </div>
             </div>
