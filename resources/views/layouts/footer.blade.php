@@ -45,6 +45,10 @@
 <script>
     $(function() {
 
+        $('.selectize').selectize({
+            placeholder: "Pilih.."
+        });
+
         $('#datatable').DataTable({
             language: {
                 url: "https://cdn.datatables.net/plug-ins/1.10.22/i18n/id.json",

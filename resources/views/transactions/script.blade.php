@@ -72,19 +72,18 @@
 
             editTransactionModalButtonSubmit.prop('disabled', true);
 
-            $('#editTransactionModal form #client_id').prop('disabled', true);
             $('#editTransactionModal form #day').prop('disabled', true);
             $('#editTransactionModal form #month').prop('disabled', true);
             $('#editTransactionModal form #year').prop('disabled', true);
             $('#editTransactionModal form #year').prop('disabled', true);
             $('#editTransactionModal form #note').prop('disabled', true);
 
-            $('#editTransactionModal form #client_id').prop('selectedIndex', 0);
+            $('#editTransactionModal form #client_name').val('Sedang mengambil data..');
             $('#editTransactionModal form #day').prop('selectedIndex', 0);
             $('#editTransactionModal form #month').prop('selectedIndex', 0);
             $('#editTransactionModal form #year').val('');
-            $('#editTransactionModal form #internet_package_name').val('');
-            $('#editTransactionModal form #internet_package_price').val('');
+            $('#editTransactionModal form #internet_package_name').val('Sedang mengambil data..');
+            $('#editTransactionModal form #internet_package_price').val('Sedang mengambil data..');
 
             $.ajax({
                 url: showTransactionUrl,
@@ -93,15 +92,15 @@
                     setTimeout(() => {
                         $('#editTransactionModal form').attr('action', updateTransactionUrl);
 
-                        $('#editTransactionModal form #client_id').prop('disabled', false);
                         $('#editTransactionModal form #day').prop('disabled', false);
                         $('#editTransactionModal form #month').prop('disabled', false);
                         $('#editTransactionModal form #year').prop('disabled', false);
 
+                        $('#editTransactionModal form #client_name').val(response.data.client_name);
                         $('#editTransactionModal form #client_id').val(response.data.client_id);
 
-                        $('#editTransactionModal form #internet_package_name').val(response.data.client.internet_package.name);
-                        $('#editTransactionModal form #internet_package_price').val(response.data.client.internet_package.price);
+                        $('#editTransactionModal form #internet_package_name').val(response.data.internet_package_name);
+                        $('#editTransactionModal form #internet_package_price').val(response.data.internet_package_price);
 
                         $('#editTransactionModal form #day').val(response.data.day);
                         $('#editTransactionModal form #month').val(response.data.month);

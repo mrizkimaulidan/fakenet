@@ -16,8 +16,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="client_id">Klien</label>
-                                <select class="form-control" name="client_id" id="client_id">
-                                    <option>Pilih..</option>
+                                <select class="form-control selectize" name="client_id" id="client_id">
+                                    <option></option>
                                     @foreach ($clients as $client)
                                     <option value="{{ $client->id }}">{{ $client->name }} - {{ $client->ip_address }}
                                     </option>

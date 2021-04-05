@@ -38,10 +38,20 @@ class TransactionController extends Controller
     {
         $transaction = Transaction::with('user', 'client.internet_package', 'client')->findOrFail($id);
 
+        $data = [
+            'client_id' => $transaction->client_id,
+            'client_name' => $transaction->client->name,
+            'internet_package_name' => $transaction->client->internet_package->name,
+            'internet_package_price' => indonesian_currency($transaction->client->internet_package->price),
+            'day' => $transaction->day,
+            'month' => $transaction->month,
+            'year' => $transaction->year,
+        ];
+
         return response()->json([
             'status' => Response::HTTP_OK,
             'message' => 'Berhasil mengambil data!',
-            'data' => $transaction
+            'data' => $data
         ]);
     }
 

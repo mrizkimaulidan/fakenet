@@ -17,13 +17,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="client_id">Klien</label>
-                                <select class="form-control" name="client_id" id="client_id">
-                                    <option>Pilih..</option>
-                                    @foreach ($clients as $client)
-                                    <option value="{{ $client->id }}">{{ $client->name }} - {{ $client->ip_address }}
-                                    </option>
-                                    @endforeach
-                                </select>
+                                <input type="text" class="form-control" id="client_name" readonly>
+                                <input type="hidden" name="client_id" id="client_id">
                             </div>
                         </div>
                     </div>
@@ -32,16 +27,14 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="internet_package_name">Nama Paket Internet</label>
-                                <input type="text" class="form-control" id="internet_package_name"
-                                    placeholder="Pilih klien terlebih dahulu" disabled>
+                                <input type="text" class="form-control" id="internet_package_name" disabled>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="internet_package_price">Harga Paket Internet</label>
-                                <input type="text" class="form-control" id="internet_package_price"
-                                    placeholder="Pilih klien terlebih dahulu" disabled>
+                                <input type="text" class="form-control" id="internet_package_price" disabled>
                             </div>
                         </div>
                     </div>
