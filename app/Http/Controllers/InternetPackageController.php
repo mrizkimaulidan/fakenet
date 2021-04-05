@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreInternetPackageRequest;
+use App\Http\Requests\UpdateInternetPackageRequest;
 use App\Models\InternetPackage;
 use Illuminate\Http\Request;
 
@@ -75,7 +76,7 @@ class InternetPackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateInternetPackageRequest $request, $id)
     {
         $internet_package = InternetPackage::findOrFail($id);
 
