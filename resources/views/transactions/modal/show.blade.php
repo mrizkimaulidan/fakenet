@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="user_id">Admin Pencatat</label>
+                                <label for="user_id">Penagih</label>
                                 <input type="text" class="form-control" id="user_id" disabled>
                             </div>
                         </div>
