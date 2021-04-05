@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreInternetPackageRequest;
 use App\Models\InternetPackage;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class InternetPackageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreInternetPackageRequest $request)
     {
         InternetPackage::create([
             'name' => $request->name,
