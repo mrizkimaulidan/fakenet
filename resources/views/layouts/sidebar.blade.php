@@ -60,10 +60,10 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item {{ request()->routeIs('laporan.tagihan.*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('laporan.tagihan.index') }}">
+    <li class="nav-item {{ request()->routeIs('laporan.rekap.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('laporan.rekap.index') }}">
             <i class="fas fa-fw fa-money-check"></i>
-            <span>Tagihan</span></a>
+            <span>Rekap</span></a>
     </li>
 
     <!-- Divider -->

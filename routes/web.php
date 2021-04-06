@@ -32,9 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('administrator-aplikasi', AdministratorApplicationController::class);
 
     Route::name('laporan.')->prefix('laporan')->group(function () {
-        Route::resource('tagihan', TransactionReportController::class);
-        Route::get('/export/{year}', [TransactionReportController::class, 'export'])->name('export.year');
-        Route::get('/export/iuran/{year}', [TransactionReportController::class, 'listOfDuesExport'])->name('export.dues');
+        Route::resource('rekap', TransactionReportController::class);
+        Route::get('/export/rekap/{year}', [TransactionReportController::class, 'export'])->name('export.year');
+        Route::get('/export/rekap/iuran/{year}', [TransactionReportController::class, 'listOfDuesExport'])->name('export.dues');
     });
 });
 
