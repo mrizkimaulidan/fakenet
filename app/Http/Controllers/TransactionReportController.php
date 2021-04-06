@@ -106,7 +106,6 @@ class TransactionReportController extends Controller
 
         $months = ['JANUARI', 'FEBRUARI', 'MARET', 'APRIL', 'MEI', 'JUNI', 'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DESEMBER'];
 
-
         foreach (range('I', 'T') as $key => $paragraph) {
             $sheet->setCellValue($paragraph . 4, $months[$key]);
         }
@@ -126,12 +125,9 @@ class TransactionReportController extends Controller
             foreach (range('I', 'T') as $key => $paragraph) {
                 $transactions_by_user_id = Transaction::with('client')->where('client_id', $row->client_id)->where('month', sprintf('%02d', $key + 1))->where('year', $year)->get();
 
-                $sum_month = Transaction::where('month', sprintf('%02d', $key + 1))->where('year', $year)->sum('amount');
 
                 foreach ($transactions_by_user_id as $key => $transaction_by_user_id) {
                     $sheet->setCellValue($paragraph . $cell, $transaction_by_user_id->amount);
-
-                    $sheet->setCellValue($paragraph . $key + 7, $sum_month);
                 }
             }
 
@@ -144,6 +140,16 @@ class TransactionReportController extends Controller
                     ]
                 ]
             ]);
+        }
+
+        foreach (range('I', 'T') as $key => $paragraph) {
+            $sum_month = Transaction::where('month', sprintf('%02d', $key + 1))->where('year', $year)->sum('amount');
+
+            if ($sum_month === 0) {
+                $sum_month = null;
+            }
+
+            $sheet->setCellValue($paragraph . $cell, $sum_month);
         }
 
         ob_end_clean();
