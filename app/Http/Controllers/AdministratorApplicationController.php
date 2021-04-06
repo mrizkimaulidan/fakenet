@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAdministratorApplicationRequest;
 use App\Models\Position;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class AdministratorApplicationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAdministratorApplicationRequest $request)
     {
         User::create([
             'position_id' => $request->position_id,
