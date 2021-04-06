@@ -124,8 +124,14 @@ class TransactionReportController extends Controller
             $sheet->setCellValue('H' . $cell, $row->client->internet_package->price);
 
             foreach (range('I', 'T') as $key => $paragraph) {
-                foreach (Transaction::with('client')->where('client_id', $row->client_id)->where('month', sprintf('%02d', $key + 1))->where('year', $year)->get() as $key => $transaction_by_user_id) {
+                $transactions_by_user_id = Transaction::with('client')->where('client_id', $row->client_id)->where('month', sprintf('%02d', $key + 1))->where('year', $year)->get();
+
+                $sum_month = Transaction::where('month', sprintf('%02d', $key + 1))->where('year', $year)->sum('amount');
+
+                foreach ($transactions_by_user_id as $key => $transaction_by_user_id) {
                     $sheet->setCellValue($paragraph . $cell, $transaction_by_user_id->amount);
+
+                    $sheet->setCellValue($paragraph . $key + 7, $sum_month);
                 }
             }
 
