@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAdministratorApplicationRequest;
+use App\Http\Requests\UpdateAdministratorApplicationRequest;
 use App\Models\Position;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -79,7 +80,7 @@ class AdministratorApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateAdministratorApplicationRequest $request, $id)
     {
         $administrator_application = User::findOrFail($id);
 
