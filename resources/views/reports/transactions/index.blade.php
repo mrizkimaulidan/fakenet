@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-'title' => 'Halaman Laporan Tagihan'
+'title' => 'Halaman Laporan'
 ])
 
 @section('content')
