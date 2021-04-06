@@ -9,15 +9,6 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="day">Masukkan tanggal</label>
-                    <select class="form-control" name="day" id="day">
-                        <option>Pilih..</option>
-                        @foreach (range(1,31) as $day)
-                        <option value="{{ sprintf('%02d', $day) }}">{{ sprintf('%02d', $day) }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
                     <label for="year">Masukkan tahun</label>
                     <input type="number" class="form-control" name="year" id="year" value="{{ date('Y') }}"
                         placeholder="Masukkan tahun">

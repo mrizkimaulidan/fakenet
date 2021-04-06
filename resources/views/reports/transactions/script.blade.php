@@ -13,10 +13,10 @@
         $('#listOfDues .modal-footer #export').click(function(e) {
             e.preventDefault();
             
-            let day = $('#listOfDues #day').val();
             let year = $('#listOfDues #year').val();
 
-            let url = "{{ url('/laporan/export/iuran/') }}/" + day + '/' + year;
+            let url = "{{ route('laporan.export.dues', 'year') }}";
+            url = url.replace('year', year);
 
             window.open(url, '_blank');
         });

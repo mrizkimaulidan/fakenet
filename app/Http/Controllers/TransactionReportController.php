@@ -80,10 +80,9 @@ class TransactionReportController extends Controller
         exit();
     }
 
-    public function listOfDuesExport($day, $year)
+    public function listOfDuesExport($year)
     {
-        $transactions = Transaction::with('client')->where('day', $day)->where('year', $year)->get()->unique('client_id');
-        // dd($transactions);
+        $transactions = Transaction::with('client')->where('year', $year)->orderBy('day')->get()->unique('client_id');
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet()->mergeCells('A1:E1')->mergeCells('I3:T3');
@@ -97,6 +96,7 @@ class TransactionReportController extends Controller
         $sheet->setCellValue('G3', 'PAKET');
         $sheet->setCellValue('H3', 'PERBULAN');
         $sheet->setCellValue('I3', 'BULAN');
+        $sheet->getStyle('A:T')->getAlignment()->setHorizontal('center');
 
         foreach (range('A', 'T') as $paragraph) {
             $sheet->getColumnDimension($paragraph)->setAutoSize(true);
@@ -142,7 +142,7 @@ class TransactionReportController extends Controller
 
         ob_end_clean();
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="IURAN REKAPITULASI_' . $day . '_' . $year . '".xlsx');
+        header('Content-Disposition: attachment; filename="IURAN REKAPITULASI_' . $year . '".xlsx');
         $writer->save('php://output');
         exit();
     }
