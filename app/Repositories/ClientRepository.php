@@ -12,7 +12,15 @@ class ClientRepository extends Controller
     ) {
     }
 
-    public function getNewestClientBy(string $day = null, string $month = null, string $year = null)
+    /**
+     * Ambil data klien yang baru daftar berdasarkan hari, bulan atau tahun.
+     *
+     * @param string $day adalah hari dalam bentuk angka dari 01-31.
+     * @param string $month adalah bulan dalam bentuk angka dari 01-12.
+     * @param string $year adalah tahun seperti 2019, 2020, dst.
+     * @return Int
+     */
+    public function getNewestClientBy(string $day = null, string $month = null, string $year = null): Int
     {
         $count_newest_client = $this->model;
 
