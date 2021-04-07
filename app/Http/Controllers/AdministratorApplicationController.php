@@ -107,6 +107,8 @@ class AdministratorApplicationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+
+        return redirect()->route('administrator-aplikasi.index')->with('success', 'Data berhasil dihapus!');
     }
 }
