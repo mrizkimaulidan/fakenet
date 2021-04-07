@@ -20,7 +20,7 @@
                     <div class="col-md-12 col-lg-4">
                         <div class="form-group">
                             <label for="internet_package_id">Paket Internet</label>
-                            <select class="form-control" name="internet_package_id" id="internet_package_id">
+                            <select class="form-control selectize" name="internet_package_id" id="internet_package_id">
                                 <option selected>Pilih..</option>
                                 @foreach ($internet_packages as $internet_package)
                                 <option value="{{ $internet_package->id }}">{{ $internet_package->name }} -
