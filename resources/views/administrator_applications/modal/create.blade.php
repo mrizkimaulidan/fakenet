@@ -14,7 +14,8 @@
                     @csrf
                     <div class="form-group">
                         <label for="name">Nama</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan nama">
+                        <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}"
+                            placeholder="Masukkan nama">
                     </div>
 
                     <div class="form-group">
@@ -29,7 +30,7 @@
 
                     <div class="form-group">
                         <label for="email">Alamat Email</label>
-                        <input type="email" class="form-control" name="email" id="email"
+                        <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}"
                             placeholder="Masukkan alamat email">
                     </div>
 
