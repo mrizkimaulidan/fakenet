@@ -10,4 +10,9 @@ class InternetPackage extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'price'];
+
+    public function clients()
+    {
+        return $this->hasMany(Client::class);
+    }
 }

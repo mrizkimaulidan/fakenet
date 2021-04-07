@@ -132,7 +132,13 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        Client::findOrFail($id)->delete();
+        $client = Client::findOrFail($id);
+
+        if ($client->internet_package->exists()) {
+            return redirect()->route('klien.index')->with('warning', 'Data yang masih memiliki relasi tidak dapat dihapus!');
+        }
+
+        $client->delete();
 
         return redirect()->route('klien.index')->with('success', 'Data berhasil dihapus!');
     }

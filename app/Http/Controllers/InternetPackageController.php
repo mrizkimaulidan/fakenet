@@ -96,7 +96,11 @@ class InternetPackageController extends Controller
      */
     public function destroy($id)
     {
-        InternetPackage::findOrFail($id)->delete();
+        $internet_package = InternetPackage::findOrFail($id);
+
+        if ($internet_package->clients->isNotEmpty()) {
+            return redirect()->route('paket-internet.index')->with('warning', 'Data yang masih memiliki relasi tidak dapat dihapus!');
+        }
 
         return redirect()->route('paket-internet.index')->with('success', 'Data berhasil dihapus!');
     }
