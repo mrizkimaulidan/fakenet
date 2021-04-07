@@ -8,7 +8,7 @@
     <div class="col-md-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Menu Rekap</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Menu Tagihan</h6>
             </div>
             <div class="card-body">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#recapModal">
