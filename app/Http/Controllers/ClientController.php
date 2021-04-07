@@ -9,6 +9,13 @@ use App\Models\InternetPackage;
 
 class ClientController extends Controller
 {
+    private $path = 'images/clients/house-image/';
+
+    public function __construct(
+        private UploadHandlerController $uploadHandlerController
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -41,21 +48,12 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('house_image')) {
-            $path = 'images/clients/house-image/';
-
-            $file = $request->file('house_image');
-            $file_name = $path . Str::random(10) . $file->getClientOriginalName();
-
-            $file->move($path, $file_name);
-        }
-
         Client::create([
             'internet_package_id' => $request->internet_package_id,
             'name' => $request->name,
             'ip_address' => $request->ip_address,
             'phone_number' => $request->phone_number,
-            'house_image' => $file_name,
+            'house_image' => $this->uploadHandlerController->upload($request, $this->path, 'house_image'),
             'address' => $request->address,
         ]);
 
@@ -100,16 +98,11 @@ class ClientController extends Controller
     {
         $client = Client::findOrFail($id);
 
+        // Jika gambar ada maka update kolom house_image pada database.
         if ($request->file('house_image') !== null) {
-            $path = 'images/clients/house-image/';
-
-            $file = $request->file('house_image');
-            $file_name = $path . Str::random(10) . $file->getClientOriginalName();
-
-            $file->move($path, $file_name);
 
             $client->update([
-                'house_image' => $file_name
+                'house_image' => $this->uploadHandlerController->upload($request, $this->path, 'house_image')
             ]);
         }
 
