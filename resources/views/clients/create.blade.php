@@ -60,11 +60,8 @@
 
                     <div class="col-md-6">
                         <div class="d-flex justify-content-center">
-                            <img src="https://lh3.googleusercontent.com/proxy/Ussg1OW-ZB6K2xj4gK31oDfofjDtp7st_GTIye_iRlwUyBUtLF0S1kL7-UUe_EAVGDJHLr2UUirzewrfALK3ZtjQY57e7yNj5XsDelHaxReR_enFp5fHvXBGkxps1iH2DPMt5ePkNxP5YP1fwMtkAH2e3UwXQQs"
-                                class="img-thumbnail" id="image_preview">
-                            <input type="hidden"
-                                src="https://lh3.googleusercontent.com/proxy/Ussg1OW-ZB6K2xj4gK31oDfofjDtp7st_GTIye_iRlwUyBUtLF0S1kL7-UUe_EAVGDJHLr2UUirzewrfALK3ZtjQY57e7yNj5XsDelHaxReR_enFp5fHvXBGkxps1iH2DPMt5ePkNxP5YP1fwMtkAH2e3UwXQQs"
-                                id="old_image_preview">
+                            <img src="{{ asset('img/no-image.jpg') }}" class="img-thumbnail" id="image_preview">
+                            <input type="hidden" src="{{ asset('img/no-image.jpg') }}" id="old_image_preview">
                         </div>
                     </div>
                 </div>
