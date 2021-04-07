@@ -57,12 +57,17 @@ class TransactionController extends Controller
 
     public function clientDetail(string $id)
     {
-        $transaction = Client::with('internet_package')->findOrFail($id);
+        $transaction = Client::select('id', 'internet_package_id', 'name')->with('internet_package')->findOrFail($id);
+
+        $data = [
+            'internet_package_name' => $transaction->internet_package->name,
+            'internet_package_price' => indonesian_currency($transaction->internet_package->price)
+        ];
 
         return response()->json([
             'status' => Response::HTTP_OK,
             'message' => 'Berhasil mengambil data!',
-            'data' => $transaction
+            'data' => $data
         ]);
     }
 }

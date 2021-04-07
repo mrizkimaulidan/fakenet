@@ -16,8 +16,8 @@
                 type: "GET",
                 success: function(response) {
                     setTimeout(() => {
-                        $('#addTransactionModal form #internet_package_name').val(response.data.internet_package.name);
-                        $('#addTransactionModal form #internet_package_price').val(response.data.internet_package.price);
+                        $('#addTransactionModal form #internet_package_name').val(response.data.internet_package_name);
+                        $('#addTransactionModal form #internet_package_price').val(response.data.internet_package_price);
 
                         $('#addTransactionModal .modal-footer button[type=submit]').prop('disabled', false);
                     }, 1000);
