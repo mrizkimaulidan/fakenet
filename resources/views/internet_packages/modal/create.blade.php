@@ -14,14 +14,20 @@
                     @csrf
                     <div class="form-group">
                         <label for="name">Nama Paket</label>
-                        <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}"
-                            placeholder="Masukkan nama paket">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                            id="name" value="{{ old('name') }}" placeholder="Masukkan nama paket">
+                        @error('name')
+                        <small class="d-block font-weight-bold invalid-feedback">{{ $errors->first('name') }}</small>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label for="price">Harga</label>
-                        <input type="number" class="form-control" name="price" id="price" value="{{ old('price') }}"
-                            placeholder="Masukkan harga paket">
+                        <input type="number" class="form-control @error('price') is-invalid @enderror" name="price"
+                            id="price" value="{{ old('price') }}" placeholder="Masukkan harga paket">
+                        @error('price')
+                        <small class="d-block font-weight-bold invalid-feedback">{{ $errors->first('price') }}</small>
+                        @enderror
                     </div>
             </div>
             <div class="modal-footer">
