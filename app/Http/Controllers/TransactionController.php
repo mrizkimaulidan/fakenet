@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreTransactionRequest;
 use App\Models\Client;
 use App\Models\InternetPackage;
 use App\Models\Transaction;
@@ -50,7 +51,7 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTransactionRequest $request)
     {
         $client = Client::findOrFail($request->client_id);
 
