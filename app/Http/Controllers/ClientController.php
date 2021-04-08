@@ -25,7 +25,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::with('internet_package')->select('id', 'internet_package_id', 'name', 'phone_number', 'ip_address')->get();
+        $clients = Client::with('internet_package')->select('id', 'internet_package_id', 'name', 'phone_number', 'ip_address')->latest()->get();
 
         return view('clients.index', compact('clients'));
     }

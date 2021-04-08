@@ -17,8 +17,8 @@ class AdministratorApplicationController extends Controller
      */
     public function index()
     {
-        $administrator_applications = User::with('position')->select('id', 'position_id', 'name', 'email', 'created_at')->get();
-        $positions = Position::select('id', 'name')->get();
+        $administrator_applications = User::with('position')->select('id', 'position_id', 'name', 'email', 'created_at')->latest()->get();
+        $positions = Position::select('id', 'name')->orderBy('name')->get();
 
         return view('administrator_applications.index', compact('administrator_applications', 'positions'));
     }

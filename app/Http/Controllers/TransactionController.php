@@ -23,10 +23,10 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::with('client', 'user')->select('id', 'client_id', 'user_id', 'day', 'month', 'year')->get();
+        $transactions = Transaction::with('client', 'user')->select('id', 'client_id', 'user_id', 'day', 'month', 'year')->latest()->get();
 
-        $clients = Client::select('id', 'name', 'ip_address')->get();
-        $internet_packages = InternetPackage::select('name', 'price')->get();
+        $clients = Client::select('id', 'name', 'ip_address')->orderBy('name')->get();
+        $internet_packages = InternetPackage::select('name', 'price')->orderBy('price')->get();
 
         $amount_this_month = indonesian_currency($this->transactionRepository->sumAmount(month: date('m')));
         $amount_this_year = indonesian_currency($this->transactionRepository->sumAmount(year: date('Y')));
