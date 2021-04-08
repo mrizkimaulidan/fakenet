@@ -35,7 +35,7 @@ class TransactionReportController extends Controller
         $months = ['JANUARI', 'FEBRUARI', 'MARET', 'APRIL', 'MEI', 'JUNI', 'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DESEMBER'];
 
         foreach ($months as $key => $month) {
-            $transaction_amount = Transaction::where('month', ($key + 1))->where('year', $year)->sum('amount');
+            $transaction_amount = Transaction::select('month', 'year')->where('month', ($key + 1))->where('year', $year)->sum('amount');
 
             $result[$month] = $transaction_amount;
         }
