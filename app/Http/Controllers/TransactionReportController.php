@@ -82,7 +82,7 @@ class TransactionReportController extends Controller
 
     public function listOfDuesExport($year)
     {
-        $transactions = Transaction::with('client')->where('year', $year)->orderBy('day')->get()->unique('client_id');
+        $transactions = Transaction::with('client')->select('client_id', 'day', 'year')->where('year', $year)->orderBy('day')->get()->unique('client_id');
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet()->mergeCells('A1:E1')->mergeCells('I3:T3');
@@ -123,8 +123,7 @@ class TransactionReportController extends Controller
             $sheet->setCellValue('H' . $cell, $row->client->internet_package->price);
 
             foreach (range('I', 'T') as $key => $paragraph) {
-                $transactions_by_user_id = Transaction::with('client')->where('client_id', $row->client_id)->where('month', sprintf('%02d', $key + 1))->where('year', $year)->get();
-
+                $transactions_by_user_id = Transaction::with('client')->select('client_id', 'month', 'year', 'amount')->where('client_id', $row->client_id)->where('month', sprintf('%02d', $key + 1))->where('year', $year)->get();
 
                 foreach ($transactions_by_user_id as $key => $transaction_by_user_id) {
                     $sheet->setCellValue($paragraph . $cell, $transaction_by_user_id->amount);
@@ -143,7 +142,7 @@ class TransactionReportController extends Controller
         }
 
         foreach (range('I', 'T') as $key => $paragraph) {
-            $sum_month = Transaction::where('month', sprintf('%02d', $key + 1))->where('year', $year)->sum('amount');
+            $sum_month = Transaction::select('month', 'year', 'amount')->where('month', sprintf('%02d', $key + 1))->where('year', $year)->sum('amount');
 
             if ($sum_month === 0) {
                 $sum_month = null;
