@@ -16,7 +16,8 @@
                             <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}"
                                 placeholder="Masukkan nama klien" autofocus>
                             @error('name')
-                            <small class="font-weight-bold text-danger">{{ $errors->first('name') }}</small>
+                            <small
+                                class="d-block font-weight-bold invalid-feedback">{{ $errors->first('name') }}</small>
                             @enderror
                         </div>
                     </div>
@@ -33,7 +34,7 @@
                             </select>
                             @error('internet_package_id')
                             <small
-                                class="font-weight-bold text-danger">{{ $errors->first('internet_package_id') }}</small>
+                                class="d-block font-weight-bold invalid-feedback">{{ $errors->first('internet_package_id') }}</small>
                             @enderror
                         </div>
                     </div>
@@ -44,7 +45,8 @@
                             <input type="text" class="form-control" name="ip_address" id="ip_address"
                                 value="{{ old('ip_address') }}" placeholder="Masukkan alamat IP">
                             @error('ip_address')
-                            <small class="font-weight-bold text-danger">{{ $errors->first('ip_address') }}</small>
+                            <small
+                                class="d-block font-weight-bold invalid-feedback">{{ $errors->first('ip_address') }}</small>
                             @enderror
                         </div>
                     </div>
@@ -58,7 +60,8 @@
                                 value="{{ old('phone_number') }}" id="phone_number"
                                 placeholder="Masukkan nomor handphone">
                             @error('phone_number')
-                            <small class="font-weight-bold text-danger">{{ $errors->first('phone_number') }}</small>
+                            <small
+                                class="d-block font-weight-bold invalid-feedback">{{ $errors->first('phone_number') }}</small>
                             @enderror
                         </div>
 
@@ -71,7 +74,8 @@
                             </div>
                             <small class="text-muted">*Pastikan file berekstensi jpg/jpeg/png</small><br />
                             @error('house_image')
-                            <small class="font-weight-bold text-danger">{{ $errors->first('house_image') }}</small>
+                            <small
+                                class="d-block font-weight-bold invalid-feedback">{{ $errors->first('house_image') }}</small>
                             @enderror
                         </div>
                     </div>
@@ -91,7 +95,8 @@
                             <textarea class="form-control" name="address" id="address" rows="3"
                                 placeholder="Masukkan alamat lengkap">{{ old('address') }}</textarea>
                             @error('address')
-                            <small class="font-weight-bold text-danger">{{ $errors->first('address') }}</small>
+                            <small
+                                class="d-block font-weight-bold invalid-feedback">{{ $errors->first('address') }}</small>
                             @enderror
                         </div>
                     </div>
