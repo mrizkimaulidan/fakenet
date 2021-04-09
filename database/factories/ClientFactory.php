@@ -26,7 +26,7 @@ class ClientFactory extends Factory
             'name' => $this->faker->name,
             'address' => $this->faker->address,
             'phone_number' => $this->faker->phoneNumber,
-            'house_image' => 'images/clients/house-image/image.jpg',
+            'house_image' => 'img/no-image.jpg',
             'ip_address' => '192.168.1.' . mt_rand(1, 255)
         ];
     }
