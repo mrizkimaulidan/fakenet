@@ -34,6 +34,16 @@
 
                         editInternetPackageFormButtonSubmit.prop('disabled', false);
                     }, 1000);
+                },
+                error: function() {
+                    Swal.fire(
+                        'Kesalahan Internal!',
+                        'Lapor kepada administrator aplikasi!',
+                        'error'
+                    )
+
+                    $('#editInternetPackageModal form #name').addClass('text-danger font-weight-bold is-invalid').val('Gagal mengambil data!');
+                    $('#editInternetPackageModal form #price').prop('type', 'text').addClass('text-danger font-weight-bold is-invalid').val('Gagal mengambil data!');
                 }
             });
         });
