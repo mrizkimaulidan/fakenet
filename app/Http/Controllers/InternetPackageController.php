@@ -39,10 +39,7 @@ class InternetPackageController extends Controller
      */
     public function store(StoreInternetPackageRequest $request)
     {
-        InternetPackage::create([
-            'name' => $request->name,
-            'price' => $request->price,
-        ]);
+        InternetPackage::create($request->validated());
 
         return redirect()->route('paket-internet.index')->with('success', 'Data berhasil ditambahkan!');
     }
@@ -80,10 +77,7 @@ class InternetPackageController extends Controller
     {
         $internet_package = InternetPackage::findOrFail($id);
 
-        $internet_package->update([
-            'name' => $request->name,
-            'price' => $request->price
-        ]);
+        $internet_package->update($request->validated());
 
         return redirect()->route('paket-internet.index')->with('success', 'Data berhasil diubah!');
     }
