@@ -96,7 +96,8 @@ class TransactionReportController extends Controller
      */
     public function listOfDuesExport(string $year): Excel
     {
-        $transactions = Transaction::with('client')->select('client_id', 'day', 'year')->where('year', $year)->orderBy('day')->get()->unique('client_id');
+        $transactions = Transaction::with('client:id,internet_package_id,name,ip_address,address,phone_number', 'client.internet_package:id,name,price')
+            ->select('client_id', 'day', 'year')->where('year', $year)->orderBy('day')->get()->unique('client_id');
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet()->mergeCells('A1:E1')->mergeCells('I3:T3');
