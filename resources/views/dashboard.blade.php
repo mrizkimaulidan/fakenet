@@ -137,16 +137,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($transactions_by_limit as $transaction_by_limit)
                             <tr>
-                                <td>Ujang Ganteng</td>
+                                <td>{{ $transaction_by_limit->client->name }}</td>
                                 <td>
-                                    <span class="badge badge-primary px-2 py-2 w-100">Paket Standard (3Mbps) -
-                                        Rp150.000,00</span>
+                                    <span
+                                        class="badge badge-primary px-2 py-2 w-100">{{ $transaction_by_limit->client->internet_package->name }}
+                                        -
+                                        {{ indonesian_currency($transaction_by_limit->client->internet_package->price) }}</span>
                                 </td>
-                                <td>01-01-2000</td>
-                                <td>Rp150.000,00</td>
-                                <td>Administrator</td>
+                                <td>{{ "$transaction_by_limit->day-$transaction_by_limit->month-$transaction_by_limit->year" }}
+                                </td>
+                                <td>{{ indonesian_currency($transaction_by_limit->amount) }}</td>
+                                <td>{{ $transaction_by_limit->user->name }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

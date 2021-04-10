@@ -50,4 +50,19 @@ class TransactionRepository extends Controller
 
         return $result;
     }
+
+    /**
+     * Ambil data transaksi paling terbaru berdasarkan limit.
+     *
+     * @param string $limit adalah limit data yang ingin diambil berbentuk string angka.
+     * @return Object
+     */
+    public function transactionLatestByLimit(string $limit)
+    {
+        $transactions = $this->model
+            ->select('client_id', 'user_id', 'day', 'month', 'year', 'amount')
+            ->with('client:id,internet_package_id,name', 'user:id,name', 'client.internet_package:id,name,price');
+
+        return $transactions->latest()->take($limit)->get();
+    }
 }
