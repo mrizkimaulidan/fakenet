@@ -3,7 +3,7 @@
         $('#recapModal .modal-footer #export').click(function(e) {
             e.preventDefault();
             
-            let url = "{{ route('laporan.export.year', 'year') }}";
+            let url = "{{ route('laporan.export.recap', 'year') }}";
             let year = $('#year').val();
 
             url = url.replace('year', year);

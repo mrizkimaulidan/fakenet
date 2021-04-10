@@ -30,7 +30,14 @@ class TransactionReportController extends Controller
         return view('reports.transactions.index', compact('transactions_this_month', 'transactions_this_year'));
     }
 
-    public function export($year)
+    /**
+     * Rekapitulasi pendapatan dari tahun Januari-Desember berdasarkan tahun.
+     * Intinya method ini menghitung berapa pendapatan di setiap bulan.
+     * 
+     * @param string $year adalah tahun transaksi,
+     * @return Excel menghasilkan file excel.
+     */
+    public function exportRecap(string $year): Excel
     {
         $months = ['JANUARI', 'FEBRUARI', 'MARET', 'APRIL', 'MEI', 'JUNI', 'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DESEMBER'];
 
@@ -81,7 +88,13 @@ class TransactionReportController extends Controller
         exit();
     }
 
-    public function listOfDuesExport($year)
+    /**
+     * Menghitung iuran pada database dengan.
+     *
+     * @param string $year adalah tahun setiap transaksi yang telah dilakukan.
+     * @return Excel menghasilkan file excel.
+     */
+    public function listOfDuesExport(string $year): Excel
     {
         $transactions = Transaction::with('client')->select('client_id', 'day', 'year')->where('year', $year)->orderBy('day')->get()->unique('client_id');
 
