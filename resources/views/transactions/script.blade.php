@@ -56,6 +56,15 @@
                         $('#detailTransactionModal form #year').val(response.data.year);
                         $('#detailTransactionModal form #amount').val(response.data.amount);
                     }, 1000);
+                },
+                error: function() {
+                    Swal.fire(
+                        'Kesalahan Internal!',
+                        'Lapor kepada administrator aplikasi!',
+                        'error'
+                    )
+                    
+                    $('#detailTransactionModal').modal('hide');
                 }
             });
         });
@@ -109,35 +118,15 @@
                         editTransactionModalButtonSubmit.prop('disabled', false);
 
                     }, 1000);
-                }
-            });
-        });
-
-        $('#editTransactionModal form #client_id').change(function() {
-            let id = $(this).children('option:selected').val();
-            let url = "{{ route('api.tagihan.detail', 'id') }}";
-            url = url.replace('id', id);
-
-            $('#editTransactionModal form #internet_package_name').val('Sedang mengambil data..');
-            $('#editTransactionModal form #internet_package_price').val('Sedang mengambil data..');
-            $('#editTransactionModal form #amount').val('');
-            $('#editTransactionModal form #amount').prop('disabled', true);
-
-            $('#editTransactionModal .modal-footer button[type=submit]').prop('disabled', true);
-
-            $.ajax({
-                url: url,
-                type: "GET",
-                success: function(response) {
-                    setTimeout(() => {
-                        $('#editTransactionModal form #internet_package_name').val(response.data.internet_package.name);
-                        $('#editTransactionModal form #internet_package_price').val(response.data.internet_package.price);
-                        $('#editTransactionModal form #amount').val(response.data.internet_package.price);
-
-                        $('#editTransactionModal form #amount').prop('disabled', false);
-
-                        $('#editTransactionModal .modal-footer button[type=submit]').prop('disabled', false);
-                    }, 1000);
+                },
+                error: function() {
+                    Swal.fire(
+                        'Kesalahan Internal!',
+                        'Lapor kepada administrator aplikasi!',
+                        'error'
+                    )
+                    
+                    $('#editTransactionModal').modal('hide');
                 }
             });
         });
