@@ -71,11 +71,12 @@ class TransactionReportController extends Controller
             ]);
         }
 
-        $sheet->setCellValue('C15', array_sum($result));
+        $sum = 'C3:C' . ($cell - 1);
+        $sheet->setCellValue('C15', '=SUM(' . $sum . ')');
 
         ob_end_clean();
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="IURAN REKAPITULASI_' . $year . '".xlsx');
+        header('Content-Disposition: attachment; filename="REKAPITULASI PENDAPATAN_' . $year . '".xlsx');
         $writer->save('php://output');
         exit();
     }
