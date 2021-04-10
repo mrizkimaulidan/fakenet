@@ -143,13 +143,9 @@ class TransactionReportController extends Controller
         }
 
         foreach (range('I', 'T') as $key => $paragraph) {
-            $sum_month = Transaction::select('month', 'year', 'amount')->where('month', sprintf('%02d', $key + 1))->where('year', $year)->sum('amount');
+            $sum = '=SUM(' . $paragraph . 5 . ':' . $paragraph . ($cell - 1) . ')';
 
-            if ($sum_month === 0) {
-                $sum_month = null;
-            }
-
-            $sheet->setCellValue($paragraph . $cell, $sum_month);
+            $sheet->setCellValue($paragraph . $cell, $sum);
         }
 
         ob_end_clean();
