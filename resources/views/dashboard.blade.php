@@ -5,7 +5,7 @@
 @section('content')
 <div class="row">
 
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Start of statistics -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
@@ -35,7 +35,6 @@
         </div>
     </div>
 
-    <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
@@ -62,7 +61,6 @@
         </div>
     </div>
 
-    <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-warning shadow h-100 py-2">
             <div class="card-body">
@@ -81,7 +79,6 @@
         </div>
     </div>
 
-    <!-- Pending Requests Card Example -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100 py-2">
             <div class="card-body">
@@ -99,9 +96,9 @@
             </div>
         </div>
     </div>
-</div>
 
-<!-- Content Row -->
+    <!-- End of statistics -->
+</div>
 
 <div class="row">
 
@@ -115,6 +112,43 @@
             <div class="card-body">
                 <div class="chart-Area">
                     <canvas id="yearChart" height="100vh"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    5 Transaksi Terakhir
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive text-center">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Klien</th>
+                                <th>Paket</th>
+                                <th>Tanggal</th>
+                                <th>Total Bayar</th>
+                                <th>Penagih</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ujang Ganteng</td>
+                                <td>
+                                    <span class="badge badge-primary px-2 py-2 w-100">Paket Standard (3Mbps) -
+                                        Rp150.000,00</span>
+                                </td>
+                                <td>01-01-2000</td>
+                                <td>Rp150.000,00</td>
+                                <td>Administrator</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
