@@ -42,8 +42,7 @@
                         'error'
                     )
 
-                    $('#editInternetPackageModal form #name').addClass('text-danger font-weight-bold is-invalid').val('Gagal mengambil data!');
-                    $('#editInternetPackageModal form #price').prop('type', 'text').addClass('text-danger font-weight-bold is-invalid').val('Gagal mengambil data!');
+                    $('#editInternetPackageModal').modal('hide');
                 }
             });
         });

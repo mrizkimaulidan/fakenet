@@ -66,6 +66,15 @@
 
                         $('#editAdministratorApplicationModal .modal-footer button[type=submit]').prop('disabled', false);
                     }, 1000);
+                },
+                error: function() {
+                    Swal.fire(
+                        'Kesalahan Internal!',
+                        'Lapor kepada administrator aplikasi!',
+                        'error'
+                    )
+                    
+                    $('#editAdministratorApplicationModal').modal('hide');
                 }
             });
         });
