@@ -26,10 +26,12 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::resource('klien', ClientController::class);
-    Route::resource('tagihan', TransactionController::class);
-    Route::resource('paket-internet', InternetPackageController::class);
-    Route::resource('administrator-aplikasi', AdministratorApplicationController::class);
+    Route::resources([
+        'klien' => ClientController::class,
+        'tagihan' => TransactionController::class,
+        'paket-internet' => InternetPackageController::class,
+        'administrator-aplikasi' => AdministratorApplicationController::class
+    ]);
 
     Route::name('laporan.')->prefix('laporan')->group(function () {
         Route::resource('rekap', TransactionReportController::class);
