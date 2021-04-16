@@ -24,10 +24,7 @@ class TransactionReportController extends Controller
      */
     public function index(Request $request)
     {
-        $transactions_this_month = $this->transactionReportRepository->getTransactionsBy(month: date('m'));
-        $transactions_this_year = $this->transactionReportRepository->getTransactionsBy(year: date('Y'));
-
-        return view('reports.transactions.index', compact('transactions_this_month', 'transactions_this_year'));
+        return view('reports.transactions.index');
     }
 
     /**
