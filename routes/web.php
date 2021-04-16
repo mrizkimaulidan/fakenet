@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     ]);
 
     Route::name('laporan.')->prefix('laporan')->group(function () {
-        Route::resource('rekap', TransactionReportController::class);
+        Route::get('rekap', [TransactionReportController::class, 'index'])->name('rekap.index');
         Route::get('/export/rekap/{year}', [TransactionReportController::class, 'exportRecap'])->name('export.recap');
         Route::get('/export/rekap/iuran/{year}', [TransactionReportController::class, 'listOfDuesExport'])->name('export.dues');
     });
