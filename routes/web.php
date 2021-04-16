@@ -27,9 +27,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('klien', ClientController::class);
-    Route::resource('tagihan', TransactionController::class);
-    Route::resource('paket-internet', InternetPackageController::class);
-    Route::resource('administrator-aplikasi', AdministratorApplicationController::class);
+
+    Route::resource('tagihan', TransactionController::class)->except([
+        'create', 'edit', 'show'
+    ]);
+
+    Route::resource('paket-internet', InternetPackageController::class)->except([
+        'create', 'show', 'edit'
+    ]);
+
+    Route::resource('administrator-aplikasi', AdministratorApplicationController::class)->except([
+        'create', ' show', 'edit'
+    ]);
 
     Route::name('laporan.')->prefix('laporan')->group(function () {
         Route::resource('rekap', TransactionReportController::class);
