@@ -48,3 +48,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+// If no route matched, 404 page will be returned.
+Route::fallback(function () {
+    abort(404);
+});
