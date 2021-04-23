@@ -59,6 +59,8 @@ class ClientController extends Controller
             'address' => $request->address,
         ]);
 
+        notify()->success('Data berhasil ditambahkan!', 'Berhasil!');
+
         return redirect()->route('klien.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
@@ -116,6 +118,8 @@ class ClientController extends Controller
             'address' => $request->address,
         ]);
 
+        notify()->success('Data berhasil diubah!', 'Berhasil!');
+
         return redirect()->route('klien.index')->with('success', 'Data berhasil diubah!');
     }
 
@@ -130,10 +134,13 @@ class ClientController extends Controller
         $client = Client::findOrFail($id);
 
         if ($client->internet_package->exists()) {
+            notify()->warning('Data yang masih memiliki relasi tidak dapat dihapus!', 'Peringatan!');
             return redirect()->route('klien.index')->with('warning', 'Data yang masih memiliki relasi tidak dapat dihapus!');
         }
 
         $client->delete();
+
+        notify()->success('Data berhasil dihapus!', 'Berhasil!');
 
         return redirect()->route('klien.index')->with('success', 'Data berhasil dihapus!');
     }

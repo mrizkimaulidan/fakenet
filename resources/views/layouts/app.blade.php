@@ -1,7 +1,6 @@
 @include('layouts.header')
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -29,6 +28,7 @@
                     <!-- Content Row -->
                     @yield('content')
 
+                    @include('notify::messages')
                 </div>
                 <!-- /.container-fluid -->
 

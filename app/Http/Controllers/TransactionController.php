@@ -55,6 +55,8 @@ class TransactionController extends Controller
             'amount' => $client->internet_package->price,
         ]);
 
+        notify()->success('Data berhasil ditambahkan!', 'Berhasil!');
+
         return redirect()->route('tagihan.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
@@ -78,6 +80,8 @@ class TransactionController extends Controller
             'amount' => $transaction->client->internet_package->price
         ]);
 
+        notify()->success('Data berhasil diubah!', 'Berhasil!');
+
         return redirect()->route('tagihan.index')->with('success', 'Data berhasil diubah!');
     }
 
@@ -90,6 +94,8 @@ class TransactionController extends Controller
     public function destroy($id)
     {
         Transaction::findOrFail($id)->delete();
+
+        notify()->success('Data berhasil dihapus!', 'Berhasil!');
 
         return redirect()->route('tagihan.index')->with('success', 'Data berhasil dihapus!');
     }

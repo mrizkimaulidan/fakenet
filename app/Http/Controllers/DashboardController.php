@@ -23,7 +23,6 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
         $count_new_client_this_day = $this->clientRepository->getNewestClientBy(day: date('d'));
         $count_new_client_this_month = $this->clientRepository->getNewestClientBy(month: date('m'));
         $count_new_client_this_year = $this->clientRepository->getNewestClientBy(year: date('Y'));

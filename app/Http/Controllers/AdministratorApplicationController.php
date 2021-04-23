@@ -37,6 +37,8 @@ class AdministratorApplicationController extends Controller
             'password' => bcrypt($request->password)
         ]);
 
+        notify()->success('Data berhasil ditambahkan!', 'Berhasil!');
+
         return redirect()->route('administrator-aplikasi.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
@@ -63,6 +65,8 @@ class AdministratorApplicationController extends Controller
             'email' => $request->email
         ]);
 
+        notify()->success('Data berhasil diubah!', 'Berhasil!');
+
         return redirect()->route('administrator-aplikasi.index')->with('success', 'Data berhasil diubah!');
     }
 
@@ -75,6 +79,8 @@ class AdministratorApplicationController extends Controller
     public function destroy($id)
     {
         User::findOrFail($id)->delete();
+
+        notify()->success('Data berhasil dihapus!', 'Berhasil!');
 
         return redirect()->route('administrator-aplikasi.index')->with('success', 'Data berhasil dihapus!');
     }

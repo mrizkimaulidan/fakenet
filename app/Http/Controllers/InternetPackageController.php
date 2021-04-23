@@ -31,6 +31,8 @@ class InternetPackageController extends Controller
     {
         InternetPackage::create($request->validated());
 
+        notify()->success('Data berhasil ditambahkan!', 'Berhasil!');
+
         return redirect()->route('paket-internet.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
@@ -47,6 +49,8 @@ class InternetPackageController extends Controller
 
         $internet_package->update($request->validated());
 
+        notify()->success('Data berhasil diubah!', 'Berhasil!');
+
         return redirect()->route('paket-internet.index')->with('success', 'Data berhasil diubah!');
     }
 
@@ -61,8 +65,13 @@ class InternetPackageController extends Controller
         $internet_package = InternetPackage::findOrFail($id);
 
         if ($internet_package->clients->isNotEmpty()) {
+            notify()->warning('Data yang masih memiliki relasi tidak dapat dihapus!', 'Perhatian!');
             return redirect()->route('paket-internet.index')->with('warning', 'Data yang masih memiliki relasi tidak dapat dihapus!');
         }
+
+        notify()->success('Data berhasil dihapus!', 'Berhasil!');
+
+        $internet_package->delete();
 
         return redirect()->route('paket-internet.index')->with('success', 'Data berhasil dihapus!');
     }

@@ -39,6 +39,9 @@
 <!-- Selectize -->
 <script src="{{ asset('vendor/selectize/js/standalone/selectize.js') }}"></script>
 
+<!-- Notify -->
+@notifyJs
+
 <script>
     $(function() {
 
