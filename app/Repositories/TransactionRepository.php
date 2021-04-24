@@ -26,11 +26,9 @@ class TransactionRepository extends Controller
     {
         $transaction_amount = $this->model;
 
-        if ($month !== null) {
-            return $transaction_amount->where('month', $month)->where('year', date('Y'))->sum('amount');
-        }
-
-        return $transaction_amount->where('year', $year)->sum('amount');
+        return !is_null($month)
+            ? $transaction_amount->where('month', $month)->where('year', date('Y'))->sum('amount')
+            : $transaction_amount->where('year', $year)->sum('amount');
     }
 
     /**
