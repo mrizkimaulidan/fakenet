@@ -108,6 +108,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">
                     Statistik Transaksi Tahun Ini ({{ date('Y') }})
                 </h6>
+                <div class="btn btn-sm btn-success" id="refresh-chart"><i class="fas fa-fw fa-recycle"></i></div>
             </div>
             <div class="card-body">
                 <div class="chart-Area">
