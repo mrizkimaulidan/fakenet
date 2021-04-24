@@ -20,14 +20,14 @@
                     </div>
                 </div>
                 <hr>
-                <div class="justify-content-center">
-                    <h4 class="small font-weight-bold">Klien baru pada hari ini : <span
+                <div class="justify-content-center pt-2">
+                    <h4 class="small font-weight-bold py-1">Klien baru pada hari ini : <span
                             class="float-right text-{{ $count_new_client_this_day > 0 ? 'success' : 'danger' }} counter">{{ $count_new_client_this_day }}</span>
                     </h4>
-                    <h4 class="small font-weight-bold">Klien baru pada bulan ini : <span
+                    <h4 class="small font-weight-bold py-1">Klien baru pada bulan ini : <span
                             class="float-right text-{{ $count_new_client_this_month > 0 ? 'success' : 'danger' }} counter">{{ $count_new_client_this_month }}</span>
                     </h4>
-                    <h4 class="small font-weight-bold">Klien baru pada tahun ini : <span
+                    <h4 class="small font-weight-bold py-1">Klien baru pada tahun ini : <span
                             class="float-right text-{{ $count_new_client_this_year > 0 ? 'success' : 'danger' }} counter">{{ $count_new_client_this_year }}</span>
                     </h4>
                 </div>
@@ -50,9 +50,9 @@
                     </div>
                 </div>
                 <hr>
-                <div class="justify-content-center">
+                <div class="justify-content-center pt-2">
                     @foreach ($internet_packages as $internet_package)
-                    <h4 class="small font-weight-bold">{{ $internet_package->name }} : <span
+                    <h4 class="small font-weight-bold py-1">{{ $internet_package->name }} : <span
                             class="float-right">{{ indonesian_currency($internet_package->price) }}</span>
                     </h4>
                     @endforeach
