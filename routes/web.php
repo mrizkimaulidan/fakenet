@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdministratorApplicationController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExportDuesController;
+use App\Http\Controllers\ExportRecapController;
 use App\Http\Controllers\InternetPackageController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransactionReportController;
@@ -42,8 +44,8 @@ Route::middleware('auth')->group(function () {
 
     Route::name('laporan.')->prefix('laporan')->group(function () {
         Route::get('rekap', [TransactionReportController::class, 'index'])->name('rekap.index');
-        Route::get('/export/rekap/{year}', [TransactionReportController::class, 'exportRecap'])->name('export.recap');
-        Route::get('/export/rekap/iuran/{year}', [TransactionReportController::class, 'listOfDuesExport'])->name('export.dues');
+        Route::get('/export/rekap/{year}', ExportRecapController::class)->name('export.recap');
+        Route::get('/export/rekap/iuran/{year}', ExportDuesController::class)->name('export.dues');
     });
 });
 
