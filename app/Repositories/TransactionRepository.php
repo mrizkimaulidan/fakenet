@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use App\Models\Transaction;
 
 class TransactionRepository extends Controller
@@ -62,5 +63,20 @@ class TransactionRepository extends Controller
             ->with('client:id,internet_package_id,name', 'user:id,name', 'client.internet_package:id,name,price');
 
         return $transactions->latest()->take($limit)->get();
+    }
+
+    /**
+     * Ambil data data klien yang belum membayar pada bulan apa. Bulan dinamis sesuai di parameter.
+     * Untuk bulan WAJIB leading dengan angka 0 (leading with zero). Contoh 01, 02, 03, 04 dst..
+     * Untuk bulan bisa menggunakan package Carbon dengan format('m').
+     * 
+     * @param string $month adalah bulan dengan format 01, 02, 03, 04 dst..
+     * @return Object
+     */
+    public function getClientsWhoNotPaidByMonth(string $month)
+    {
+        return Client::select('id', 'name', 'phone_number', 'ip_address')->whereNotIn('id', function ($query) use ($month) {
+            $query->select('client_id')->from('transactions')->where('month', $month);
+        })->get();
     }
 }

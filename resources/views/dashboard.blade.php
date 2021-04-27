@@ -101,6 +101,35 @@
 </div>
 
 <div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">
+                    Klien yang belum ditagih
+                </h6>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                            data-target="#thisMonthModal">
+                            Bulan ini
+                        </button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="button" class="btn btn-primary w-100" data-toggle="modal"
+                            data-target="#subMonthModal">
+                            Bulan kemarin
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
 
     <div class="col-lg-12">
         <div class="card shadow mb-4">
@@ -162,6 +191,11 @@
 
 </div>
 @endsection
+
+@push('modal')
+@include('dashboard.modal.this_month')
+@include('dashboard.modal.submonth')
+@endpush
 
 @push('js')
 @include('script')
