@@ -198,5 +198,5 @@
 @endpush
 
 @push('js')
-@include('script')
+@include('dashboard.script')
 @endpush

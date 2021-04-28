@@ -48,7 +48,7 @@ class DashboardController extends Controller
         // Ambil data transaksi dengan limit.
         $transactions_by_limit = $this->transactionRepository->transactionLatestByLimit(5);
 
-        return view('dashboard', compact(
+        return view('dashboard.index', compact(
             'count_new_client_this_day',
             'count_new_client_this_month',
             'count_new_client_this_year',
