@@ -28,12 +28,11 @@ class TransactionController extends Controller
         $transactions = Transaction::with('client', 'user')->select('id', 'client_id', 'user_id', 'day', 'month', 'year')->latest()->get();
 
         $clients = Client::select('id', 'name', 'ip_address')->orderBy('name')->get();
-        $internet_packages = InternetPackage::select('name', 'price')->orderBy('price')->get();
 
         $amount_this_month = indonesian_currency($this->transactionRepository->sumAmount(month: date('m')));
         $amount_this_year = indonesian_currency($this->transactionRepository->sumAmount(year: date('Y')));
 
-        return view('transactions.index', compact('transactions', 'clients', 'internet_packages', 'amount_this_month', 'amount_this_year'));
+        return view('transactions.index', compact('transactions', 'clients', 'amount_this_month', 'amount_this_year'));
     }
 
     /**
