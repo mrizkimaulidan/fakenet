@@ -111,16 +111,51 @@
 
             <div class="card-body">
                 <div class="row">
+                    <div class="col-lg-6">
+                        @foreach ($clients_who_not_paid_this_month->take(2) as $client_who_not_paid_this_month)
+                        <div class="list-group py-2">
+                            <div class="list-group-item flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ $loop->iteration }}.
+                                        {{ $client_who_not_paid_this_month->name }}
+                                    </h5>
+                                </div>
+                                <p class="mb-1">{{ $client_who_not_paid_this_month->address }}</p>
+                                <small
+                                    class="font-weight-bold">{{ $client_who_not_paid_this_month->phone_number }}</small>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    <div class="col-lg-6">
+                        @foreach ($clients_who_not_paid_last_month->take(2) as $client_who_not_paid_last_month)
+                        <div class="list-group py-2">
+                            <div class="list-group-item flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ $loop->iteration }}.
+                                        {{ $client_who_not_paid_last_month->name }}
+                                    </h5>
+                                </div>
+                                <p class="mb-1">{{ $client_who_not_paid_last_month->address }}</p>
+                                <small
+                                    class="font-weight-bold">{{ $client_who_not_paid_last_month->phone_number }}</small>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-lg-6 pb-3">
                         <button type="button" class="btn btn-primary w-100" data-toggle="modal"
                             data-target="#thisMonthModal">
-                            Bulan Ini
+                            Bulan Ini ({{ count($clients_who_not_paid_this_month) }})
                         </button>
                     </div>
                     <div class="col-lg-6">
                         <button type="button" class="btn btn-primary w-100" data-toggle="modal"
                             data-target="#subMonthModal">
-                            Bulan Kemarin
+                            Bulan Kemarin ({{ count($clients_who_not_paid_last_month) }})
                         </button>
                     </div>
                 </div>
