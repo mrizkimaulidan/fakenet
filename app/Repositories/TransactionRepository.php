@@ -75,7 +75,7 @@ class TransactionRepository extends Controller
      */
     public function getClientsWhoNotPaidByMonth(string $month)
     {
-        return Client::select('id', 'name', 'phone_number', 'ip_address')->whereNotIn('id', function ($query) use ($month) {
+        return Client::select('id', 'name', 'phone_number', 'ip_address', 'address')->whereNotIn('id', function ($query) use ($month) {
             $query->select('client_id')->from('transactions')->where('month', $month);
         })->get();
     }
