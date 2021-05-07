@@ -90,7 +90,10 @@
             $('#editTransactionModal form #client_name').val('Sedang mengambil data..');
             $('#editTransactionModal form #day').prop('selectedIndex', 0);
             $('#editTransactionModal form #month').prop('selectedIndex', 0);
-            $('#editTransactionModal form #year').val('');
+
+            $('#editTransactionModal form #year').attr('type', 'text');
+
+            $('#editTransactionModal form #year').val('Sedang mengambil data..');
             $('#editTransactionModal form #internet_package_name').val('Sedang mengambil data..');
             $('#editTransactionModal form #internet_package_price').val('Sedang mengambil data..');
 
@@ -100,6 +103,8 @@
                 success: function(response) {
                     setTimeout(() => {
                         $('#editTransactionModal form').attr('action', updateTransactionUrl);
+
+                        $('#editTransactionModal form #year').attr('type', 'number');
 
                         $('#editTransactionModal form #day').prop('disabled', false);
                         $('#editTransactionModal form #month').prop('disabled', false);
