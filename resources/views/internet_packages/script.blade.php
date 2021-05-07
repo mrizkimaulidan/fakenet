@@ -15,8 +15,10 @@
             $('#editInternetPackageModal form #name').prop('disabled', true);
             $('#editInternetPackageModal form #price').prop('disabled', true);
 
+            $('#editInternetPackageModal form #price').attr('type', 'text');
+
             $('#editInternetPackageModal form #name').val('Sedang mengambil data..');
-            $('#editInternetPackageModal form #price').val('');
+            $('#editInternetPackageModal form #price').val('Sedang mengambil data..');
 
             $.ajax({
                 url: showInternetPackageUrl,
@@ -31,6 +33,8 @@
 
                         $('#editInternetPackageModal form #name').prop('disabled', false);
                         $('#editInternetPackageModal form #price').prop('disabled', false);
+
+                        $('#editInternetPackageModal form #price').attr('type', 'number');
 
                         editInternetPackageFormButtonSubmit.prop('disabled', false);
                     }, 1000);
