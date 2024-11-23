@@ -2,7 +2,7 @@
     $(function() {
         $('.edit-button').click(function() {
             let id = $(this).data('id');
-        
+
             let showInternetPackageUrl = "{{ route('api.paket-internet.show', 'id') }}";
             showInternetPackageUrl = showInternetPackageUrl.replace('id', id);
 
@@ -37,7 +37,7 @@
                         $('#editInternetPackageModal form #price').attr('type', 'number');
 
                         editInternetPackageFormButtonSubmit.prop('disabled', false);
-                    }, 1000);
+                    });
                 },
                 error: function() {
                     Swal.fire(

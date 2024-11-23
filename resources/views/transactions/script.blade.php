@@ -20,7 +20,7 @@
                         $('#addTransactionModal form #internet_package_price').val(response.data.internet_package_price);
 
                         $('#addTransactionModal .modal-footer button[type=submit]').prop('disabled', false);
-                    }, 1000);
+                    });
                 }
             });
         });
@@ -55,7 +55,7 @@
                         $('#detailTransactionModal form #month').val(response.data.month);
                         $('#detailTransactionModal form #year').val(response.data.year);
                         $('#detailTransactionModal form #amount').val(response.data.amount);
-                    }, 1000);
+                    });
                 },
                 error: function() {
                     Swal.fire(
@@ -63,7 +63,7 @@
                         'Lapor kepada administrator aplikasi!',
                         'error'
                     )
-                    
+
                     $('#detailTransactionModal').modal('hide');
                 }
             });
@@ -122,7 +122,7 @@
 
                         editTransactionModalButtonSubmit.prop('disabled', false);
 
-                    }, 1000);
+                    });
                 },
                 error: function() {
                     Swal.fire(
@@ -130,7 +130,7 @@
                         'Lapor kepada administrator aplikasi!',
                         'error'
                     )
-                    
+
                     $('#editTransactionModal').modal('hide');
                 }
             });

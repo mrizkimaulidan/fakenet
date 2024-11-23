@@ -53,7 +53,7 @@
                 success: function (response) {
                     setTimeout(() => {
                         $('#editAdministratorApplicationModal form').attr('action', updateAdministratorApplicationUrl);
-                        
+
                         $('#editAdministratorApplicationModal form #name').val(response.data.name);
                         $('#editAdministratorApplicationModal form #position_id').val(response.data.position.id);
                         $('#editAdministratorApplicationModal form #email').val(response.data.email);
@@ -65,7 +65,7 @@
                         $('#editAdministratorApplicationModal form #password_confirmation').prop('disabled', false);
 
                         $('#editAdministratorApplicationModal .modal-footer button[type=submit]').prop('disabled', false);
-                    }, 1000);
+                    });
                 },
                 error: function() {
                     Swal.fire(
@@ -73,7 +73,7 @@
                         'Lapor kepada administrator aplikasi!',
                         'error'
                     )
-                    
+
                     $('#editAdministratorApplicationModal').modal('hide');
                 }
             });
