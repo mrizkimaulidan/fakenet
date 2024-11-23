@@ -28,8 +28,4 @@
 
     <!-- Selectize -->
     <link rel="stylesheet" href="{{ asset('vendor/selectize/css/selectize.bootstrap4.css') }}">
-
-    <!-- Notify -->
-    @notifyCss
-
 </head>

@@ -27,8 +27,6 @@
 
                     <!-- Content Row -->
                     @yield('content')
-
-                    @include('notify::components.notify')
                 </div>
                 <!-- /.container-fluid -->
 
