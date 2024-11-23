@@ -35,6 +35,23 @@ class LoginRequest extends FormRequest
     }
 
     /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'email.required' => 'Kolom email wajib diisi!',
+            'email.string' => 'Kolom email harus berupa karakter!',
+            'email.email' => 'Kolom email harus email yang valid!',
+
+            'password.required' => 'Kolom password wajib diisi!',
+            'password.string' => 'Kolom password harus berupa karakter!',
+        ];
+    }
+
+    /**
      * Attempt to authenticate the request's credentials.
      *
      * @return void
@@ -88,6 +105,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey()
     {
-        return Str::lower($this->input('email')).'|'.$this->ip();
+        return Str::lower($this->input('email')) . '|' . $this->ip();
     }
 }
